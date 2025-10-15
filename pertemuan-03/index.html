@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Judul Halaman</title>
-    <style>            
+    <style>
+        /* ===== About Section ===== */
         #about {
             background-color: #800649;
             border-radius: 15px;
@@ -48,11 +50,12 @@
 
             #about strong {
                 text-align: left;
-                padding-right: 0px;
+                padding-right: 0;
                 margin-bottom: 2px;
             }
         }
 
+        /* ===== Contact Section ===== */
         #contact {
             background-color: #800649;
             border-radius: 15px;
@@ -117,7 +120,7 @@
             background-color: #b4b4b4;
             color: #272727;
             font-weight: 500;
-        }  
+        }
 
         #contact button[type="submit"]:hover {
             background-color: #0379ee;
@@ -129,7 +132,6 @@
             background-color: #cccccc;
             transform: translateY(-1px);
         }
-
     </style>
 </head>
 
@@ -140,17 +142,19 @@
             <ul>
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
-                <li><a href="#Contact">Kontak</a></li>
+                <li><a href="#contact">Kontak</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Home Section -->
         <section id="home">
             <h2>Selamat Datang</h2>
             <p>Ini contoh paragraf HTML.</p>
         </section>
 
+        <!-- About Section -->
         <section id="about">
             <h2>Tentang Saya</h2>
             <p><strong>NIM:</strong> 2511500039</p>
@@ -166,19 +170,24 @@
             <p><strong>Motto Hidup:</strong> Makanlah sebelum merasa kelaparan</p>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact">
             <h2>Kontak Kami</h2>
-            <form action="" method="get">
-                <input type="color">
+            <form action="" method="GET">
+                <label for="txtNama">
+                    <span>Nama:</span>
+                    <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
+                </label>
 
-                <label for="txtNama">Nama:</label>
-                <input type="text" id="txtNama" name="txtNama" placeholder="Nama" required autocomplete="name">
+                <label for="txtEmail">
+                    <span>Email:</span>
+                    <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+                </label>
 
-                <label for="txtEmail">Email:</label>
-                <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" required autocomplete="email">
-
-                <label for="txtPesan">Pesan:</label>
-                <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Pesan" required></textarea>
+                <label for="txtPesan">
+                    <span>Pesan Anda:</span>
+                    <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
+                </label>
 
                 <button type="submit">Kirim</button>
                 <button type="reset">Batal</button>
@@ -190,4 +199,5 @@
         <p>&copy; Muhammad Alkautsar Dirgantara - 2511500039</p>
     </footer>
 </body>
+
 </html>
