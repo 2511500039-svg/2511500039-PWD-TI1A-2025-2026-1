@@ -4,62 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Judul Halaman</title>
-  <style>            
-    #about {
+
+  <style>
+    /* ======= Gaya Umum ======= */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f6f6f6;
+      color: #333;
+    }
+
+    header {
+      background-color: #1a004d;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #1a004d;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    /* ======= Bagian Tentang ======= */
+    #about strong {
+      color: #800649;
+    }
+
+    /* ======= Bagian Kontak ======= */
+    #contact {
       background-color: #800649;
       border-radius: 15px;
       padding: 30px;
       max-width: 700px;
       margin: 20px auto;
       box-shadow: 0 6px 9px rgba(0, 50, 100, 0.15);
-    }
-
-    #about h2 {
-      color: #003366;
-      border-bottom: 2px solid #003366;
-      padding-bottom: 6px;
-      margin-top: 0;
-      margin-bottom: 16px;
-    }
-
-    #about p {
-      display: flex;
-      justify-content: flex-start;
-      align-items: baseline;
-      margin: 0;
-      padding: 6px 0;
-      border-bottom: 1px solid #003366;
-    }
-
-    #about strong {
-      min-width: 180px;
-      color: #006609;
-      font-weight: 600;
-      text-align: right;
-      padding-right: 16px;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 600px) {
-      #about p {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      #about strong {
-        text-align: left;
-        padding-right: 0px;
-        margin-bottom: 2px;
-      }
-    }
-
-    /* ==== Gaya Baru untuk Section #contact ==== */
-    #contact {
-      background-color: #800649;
-      border-radius: 15px;
-      padding: 30px;
-      max-width: 90%;
-      margin: 30px auto;
       color: white;
     }
 
@@ -69,41 +82,78 @@
       margin-bottom: 20px;
     }
 
-    .horizontal-form {
+    #contact form {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
     }
 
-    .horizontal-form label {
-      margin-right: 5px;
+    #contact label {
+      font-weight: 600;
+      margin-bottom: 3px;
     }
 
-    .horizontal-form input,
-    .horizontal-form textarea {
-      padding: 8px;
-      border-radius: 5px;
+    #contact input,
+    #contact textarea {
       border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 14px;
+      color: #000;
+      box-sizing: border-box;
     }
 
-    .horizontal-form button {
+    #contact textarea {
+      resize: none;
+      height: 80px;
+    }
+
+    /* Tombol sejajar di tengah */
+    #contact .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    #contact button {
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #contact button[type="submit"] {
+      background-color: #003366;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    #contact button[type="reset"] {
+      background-color: #b4b4b4;
+      color: #272727;
+    }
+
+    #contact button[type="submit"]:hover {
+      background-color: #0379ee;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    #contact button[type="reset"]:hover {
+      background-color: #ccc;
+      transform: translateY(-1px);
+    }
+
+    /* ======= Footer ======= */
+    footer {
+      text-align: center;
       background-color: #1a004d;
       color: white;
-      border: none;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .horizontal-form button[type="reset"] {
-      background-color: #aaa;
-      color: black;
-    }
-
-    .horizontal-form textarea {
-      resize: none;
-      height: 35px;
+      padding: 15px 0;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -128,39 +178,50 @@
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <p><strong>NIM:</strong> 2511500039</p>
-      <p><strong>Nama Lengkap:</strong> Muhammad Alkautsar Dirgantara &#127926;</p>
-      <p><strong>Nama Orang Tua:</strong> Yurinalika (ibu), Ridwan (ayah)</p>
-      <p><strong>Nama Saudara:</strong> Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)</p>
-      <p><strong>Tempat Tinggal:</strong> Komplek Timah Sampur Atas, Gang Safir Biru XV</p>
-      <p><strong>Tempat Lahir:</strong> Pangkalpinang</p>
-      <p><strong>Tanggal Lahir:</strong> 08 April 2007</p>
-      <p><strong>Hobi:</strong> Bermain game, membaca komik, dan mendengarkan musik &#127926;</p>
-      <p><strong>Pasangan:</strong> Pacar ada, Destania Idhila &hearts;</p>
-      <p><strong>Pekerjaan:</strong> Tidak bekerja tapi seorang mahasiswa &copy;</p>
-      <p><strong>Motto Hidup:</strong> Makanlah sebelum merasa kelaparan</p>
+      <p>
+        Saya adalah mahasiswa dengan nomor NIM <strong>2511500039</strong> dan nama lengkap
+        <strong>Muhammad Alkautsar Dirgantara</strong> dari Program Studi <em>Pendidikan Teknologi Informasi</em>
+        angkatan <strong>2025</strong>. Saya lahir di <strong>Pangkalpinang</strong> pada tanggal
+        <strong>08 April 2007</strong>. Saya memiliki hobi bermain game 🎮, membaca komik 📚, dan membaca novel 📖.
+      </p>
+
+      <p>
+        Saat ini saya belum memiliki pasangan hidup, tetapi saya sudah memiliki pacar bernama
+        <strong>Destania Idhila</strong>. Dia sangat cantik dan baik hati 😊.
+      </p>
+
+      <p>
+        Saya merupakan mahasiswa yang sedang menempuh pendidikan di
+        <strong>Institut Sains dan Bisnis Atma Luhur</strong>. Saya adalah anak dari
+        <strong>Ridwan</strong> &amp; <strong>Yurinalika</strong> ❤️,
+        dan saya memiliki seorang kakak laki-laki bernama
+        <strong>Muhammad Aldhio Nanda Sepbriano</strong>.
+      </p>
     </section>
 
     <section id="contact">
       <h2>Kontak Kami</h2>
-      <form class="horizontal-form" action="" method="get">
-        <label for="txtNama">Nama:</label>
-        <input type="text" id="txtNama" name="txtNama" placeholder="Nama" required autocomplete="name">
+      <form action="#" method="post">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama anda" required>
 
-        <label for="txtEmail">Email:</label>
-        <input type="email" id="txtEmail" name="txtEmail" placeholder="Email" required autocomplete="email">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email anda" required>
 
-        <label for="txtPesan">Pesan:</label>
-        <textarea id="txtPesan" name="txtPesan" placeholder="Pesan" required></textarea>
+        <label for="pesan">Pesan:</label>
+        <textarea id="pesan" name="pesan" placeholder="Tulis pesan anda di sini..." required></textarea>
 
-        <button type="submit">Kirim</button>
-        <button type="reset">Batal</button>
+        <div class="button-group">
+          <button type="submit">Kirim</button>
+          <button type="reset">Batal</button>
+        </div>
       </form>
     </section>
   </main>
 
   <footer>
     <p>&copy; Muhammad Alkautsar Dirgantara - 2511500039</p>
+    <p>&hearts; Untuk empat orang tersayang di atas 😍</p>
   </footer>
 </body>
 </html>
