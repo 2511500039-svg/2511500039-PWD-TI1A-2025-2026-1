@@ -10,6 +10,26 @@ body {
   line-height: 1.5;
 }
 
+header {
+  background-color: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+
+header ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+header li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6 12px;
+}
+
 #about,
 #contact {
   background-color: #800649;
