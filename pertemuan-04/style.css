@@ -25,6 +25,11 @@ header ul {
   margin: 10px 0 0;
 }
 
+header li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
 header li a {
   color: #fff;
   text-decoration: none;
