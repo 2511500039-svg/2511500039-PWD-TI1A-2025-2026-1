@@ -18,22 +18,25 @@ header {
 }
 
 header ul {
-  display: flex;
-  justify-content: center;
-  list-style-type: none;
+  list-style: none;   /* hilangkan titik list */
   padding: 0;
-  margin: 10px 0 0;
+  margin: 0;
+  text-align: center; /* posisikan di tengah */
 }
 
 header li {
-  display: inline-block;
-  margin: 0 20px;
+  display: inline-block; /* sejajarkan menu ke samping */
+  margin: 0 20px;        /* jarak antar menu */
 }
 
 header li a {
   color: #fff;
   text-decoration: none;
-  padding: 6 12px;
+  font-weight: bold;
+}
+
+header li a:hover {
+  text-decoration: underline;
 }
 
 #about,
