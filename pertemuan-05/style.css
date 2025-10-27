@@ -15,8 +15,6 @@ header {
   color: #fff;
   padding: 20px;
   text-align: center;
-  position: relative; /* Diperlukan untuk posisi toggle */
-  z-index: 1000;
 }
 
 header ul {
@@ -35,58 +33,57 @@ header li {
 header li a {
   color: #fff;
   text-decoration: none;
-  padding: 6px 12px;
-  cursor: pointer;
+  padding: 6 12px;
 }
 
 #home,
 #about,
 #contact {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  max-width: 700px;
-  margin: 20px auto;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0,
+    0.1);
+} 
 #home h2,
 #about h2,
 #contact h2 {
-  color: #003366; /* diperbaiki dari 'olor' */
-  border-bottom: 2px solid #003366;
-  padding-bottom: 6px;
-  margin-top: 0;
-  margin-bottom: 16px;
+    olor: #003366;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 6px;
+    margin-top: 0;
+    margin-bottom: 16px;
 }
 
 #home p {
-  text-align: justify;
+text-align: justify;
 }
 
 footer {
-  background: #222;
-  color: #aaa;
-  text-align: center;
-  padding: 10px;
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 10px;
 }
 
 header li a:hover {
-  background-color: #85020d;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
+    background-color: #85020d;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
 }
 
 header li a:focus {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-  border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.15);
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 header li a:active {
-  background-color: #cc04a1;
-  transform: translateY(1px);
+    background-color: #cc04a1;
+    transform: translateY(1px);
 }
 
 #about,
@@ -133,8 +130,6 @@ header li a:active {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-  position: relative;
-  z-index: 1; /* agar form bisa diketik */
 }
 
 #contact label {
@@ -165,8 +160,6 @@ header li a:active {
   font-weight: normal;
   margin: 0;
   box-sizing: border-box;
-  background: #fff;
-  z-index: 2;
 }
 
 #contact button {
@@ -204,65 +197,37 @@ header li a:active {
   transform: translateY(-1px);
 }
 
-/* ===================== TOGGLE BUTTON ===================== */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  position: absolute;
-  left: 16px;
-  top: 16px;
-  z-index: 1001;
-}
-
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 600px) {
-  .menu-toggle {
-    display: block;
-  }
 
-  nav {
-    display: none;
-    flex-direction: column;
-    background: #003366;
-    width: 100%;
-    padding: 5px 0;
-  }
-
-  nav.active {
-    display: flex;
-  }
-
-  header {
+header {
     padding: 16px;
     position: sticky;
     top: 0;
     z-index: 1000;
-  }
+}
+...
 
-  header h1 {
+header h1 {
     margin: 0 0 8px;
     font-size: 20px;
     line-height: 1.2;
-  }
+}
 
-  header ul {
+header ul {
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
     margin: 8px 0 0;
-  }
+}
 
-  header li a {
+header li a {
     display: block;
     padding: 12px 14px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: saturate(120%); /* diperbaiki dari ackdrop-filter */
-  }
+    border: 1px solid rgba(255, 255, 255, .35);
+    background: rgba(255, 255, 255, .08);
+    ackdrop-filter: saturate(120%);
+}
 
   #about p,
   #contact label {
@@ -283,6 +248,3 @@ header li a:active {
     width: 100%;
   }
 }
-
-
-
