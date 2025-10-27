@@ -212,7 +212,8 @@ header li a:active {
     position: absolute;
     left: 16px;
     top: 8px;
-
+    }
+    
 header {
     padding: 16px;
     position: sticky;
