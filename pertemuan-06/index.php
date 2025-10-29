@@ -30,7 +30,8 @@
       <h2>Selamat Datang</h2>
       <?php
       echo "Halo dunia!"; 
-      ?>
+      echo "nama saya alkautsar";
+      ?>  
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
