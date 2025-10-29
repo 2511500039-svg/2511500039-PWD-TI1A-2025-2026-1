@@ -47,7 +47,7 @@
       <h2>Tentang Saya</h2>
       <p><strong>NIM:</strong> 
         <?php
-          echo $Nim;
+          echo $nama;
         ?>
       </p>
       <p><strong>Nama Lengkap:</strong> Muhammad Alkautsar Dirgantara &#127926;</p>
