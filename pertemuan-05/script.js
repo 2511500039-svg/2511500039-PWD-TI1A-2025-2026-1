@@ -84,7 +84,6 @@ function alignErrorMessage(smallEl, inputEl) {
     smallEl.style.width = Math.round(rectInput.width) + "px";
 }
 
-// RE-ALIGN ERROR SAAT WINDOW RESIZE
 window.addEventListener("resize", () => {
     document.querySelectorAll(".Error-msg").forEach(small => {
         const target = document.getElementById(small.dataset.forId);
@@ -92,7 +91,6 @@ window.addEventListener("resize", () => {
     });
 });
 
-// TOGGLE NAV MENU
 document.getElementById("menutoggle").addEventListener("click", function () {
     const nav = document.querySelector("nav");
     nav.classList.toggle("active");
@@ -104,13 +102,11 @@ document.getElementById("menutoggle").addEventListener("click", function () {
     }
 });
 
-// HITUNG KARAKTER PESAN
 document.getElementById("txtPesan").addEventListener("input", function () {
     const panjang = this.value.length;
     document.getElementById("charCount").textContent = panjang + "/200 karakter";
 });
 
-// UCAPAN SELAMAT DATANG
 document.addEventListener("DOMContentLoaded", function () {
     const homeSection = document.getElementById("home");
     const ucapan = document.createElement("p");
@@ -121,7 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", applyResponsiveLayout);
 });
 
-// SETUP COUNTER KARAKTER PESAN
 function setupCharCountLayout() {
     const label = document.querySelector('label[for="txtPesan"]');
     if (!label) return;
@@ -152,7 +147,6 @@ function setupCharCountLayout() {
     applyResponsiveLayout();
 }
 
-// LAYOUT RESPONSIVE UNTUK PESAN
 function applyResponsiveLayout() {
     const label = document.querySelector('label[for="txtPesan"]');
     const span = label?.querySelector('span');
