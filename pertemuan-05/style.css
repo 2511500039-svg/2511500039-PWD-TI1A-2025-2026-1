@@ -161,6 +161,7 @@ footer {
         left: 16px;
         top: 8px;
     }
+
     header nav {
         display: none;
         flex-direction: column;
@@ -213,4 +214,4 @@ footer {
     #contact button {
         width: 100%;
     }
-
+}
