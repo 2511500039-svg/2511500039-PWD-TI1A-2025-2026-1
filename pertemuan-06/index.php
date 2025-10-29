@@ -29,15 +29,25 @@
     <section id="home">
       <h2>Selamat Datang</h2>
       <?php
-      echo "Halo dunia!"; 
+      echo "Halo dunia!<br>";
       echo "nama saya alkautsar";
       ?>  
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
     <section id="about">
+
+    <?php
+      $nim = "4511500028";
+      $NIM = "2511500039";
+      $Nim = "";
+    ?>
       <h2>Tentang Saya</h2>
-      <p><strong>NIM:</strong> 2511500039</p>
+      <p><strong>NIM:</strong> 
+        <?php
+          echo $Nim;
+        ?>
+      </p>
       <p><strong>Nama Lengkap:</strong> Muhammad Alkautsar Dirgantara &#127926;</p>
       <p><strong>Nama Orang Tua:</strong> Yurinalika (ibu), Ridwan (ayah)</p>
       <p><strong>Nama Saudara:</strong> Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)</p>
