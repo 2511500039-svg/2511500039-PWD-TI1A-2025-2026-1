@@ -1,4 +1,3 @@
-// FORM VALIDASI DAN PENGIRIMAN
 document.querySelector("form").addEventListener("submit", function (e) {
     e.preventDefault(); // cegah submit default dulu
 
@@ -6,13 +5,11 @@ document.querySelector("form").addEventListener("submit", function (e) {
     const email = document.getElementById("txtEmail");
     const pesan = document.getElementById("txtPesan");
 
-    // Hapus pesan error sebelumnya
     document.querySelectorAll(".Error-msg").forEach(el => el.remove());
     [nama, email, pesan].forEach(el => el.style.border = "");
 
     let isValid = true;
 
-    // VALIDASI NAMA
     if (nama.value.trim().length < 3) {
         showError(nama, "Nama minimal 3 huruf dan tidak boleh kosong.");
         isValid = false;
@@ -21,7 +18,6 @@ document.querySelector("form").addEventListener("submit", function (e) {
         isValid = false;
     }
 
-    // VALIDASI EMAIL
     if (email.value.trim() === "") {
         showError(email, "Email wajib diisi.");
         isValid = false;
@@ -42,7 +38,6 @@ document.querySelector("form").addEventListener("submit", function (e) {
     }
 });
 
-// FUNSI MENAMPILKAN ERROR
 function showError(inputElement, message) {
     const label = inputElement.closest("label");
     if (!label) return;
@@ -70,7 +65,6 @@ function showError(inputElement, message) {
     alignErrorMessage(small, inputElement);
 }
 
-// FUNGSI ALIGN ERROR SESUAI LAYOUT
 function alignErrorMessage(smallEl, inputEl) {
     const isMobile = window.matchMedia("(max-width: 600px)").matches;
     if (isMobile) {
