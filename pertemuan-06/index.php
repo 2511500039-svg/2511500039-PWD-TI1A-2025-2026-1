@@ -41,6 +41,8 @@
       $nim = "4511500028";
       $NIM = "2511500039";
       $Nim = "";
+      $Nama = "Say'yid abdullah";
+      $nama = 'Al/Kautsar Benyamin';
     ?>
       <h2>Tentang Saya</h2>
       <p><strong>NIM:</strong> 
