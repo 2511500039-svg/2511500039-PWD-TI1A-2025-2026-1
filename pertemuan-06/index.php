@@ -34,6 +34,84 @@
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
+    <section id="ipk" style="background-color:#800649; border-radius:15px; padding:30px; max-width:700px; margin:20px auto; color:white;">
+    <h2 style="text-align:center;">Nilai Saya</h2>
+    <?php
+    $namaMatkul1 = "Algoritma dan Struktur Data";
+    $namaMatkul2 = "Agama";
+    $namaMatkul3 = "Basis Data";
+    $namaMatkul4 = "Pemrograman Berorientasi Objek";
+    $namaMatkul5 = "Pemrograman Web Dasar";
+
+    $sksMatkul1 = 4;
+    $sksMatkul2 = 2;
+    $sksMatkul3 = 4;
+    $sksMatkul4 = 3;
+    $sksMatkul5 = 3;
+
+    $nilaiHadir1 = 90; $nilaiTugas1 = 60; $nilaiUTS1 = 80; $nilaiUAS1 = 70;
+    $nilaiHadir2 = 70; $nilaiTugas2 = 50; $nilaiUTS2 = 60; $nilaiUAS2 = 80;
+    $nilaiHadir3 = 80; $nilaiTugas3 = 70; $nilaiUTS3 = 75; $nilaiUAS3 = 85;
+    $nilaiHadir4 = 85; $nilaiTugas4 = 80; $nilaiUTS4 = 70; $nilaiUAS4 = 90;
+    $nilaiHadir5 = 69; $nilaiTugas5 = 80; $nilaiUTS5 = 90; $nilaiUAS5 = 100;
+
+    function hitungNilai($hadir, $tugas, $uts, $uas) {
+        return (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
+    }
+
+    function hitungGrade($nilaiAkhir, $hadir) {
+        if ($hadir < 70) return ["E", 0.00];
+        if ($nilaiAkhir >= 91) return ["A", 4.00];
+        elseif ($nilaiAkhir >= 81) return ["A-", 3.70];
+        elseif ($nilaiAkhir >= 76) return ["B+", 3.30];
+        elseif ($nilaiAkhir >= 71) return ["B", 3.00];
+        elseif ($nilaiAkhir >= 66) return ["B-", 2.70];
+        elseif ($nilaiAkhir >= 61) return ["C+", 2.30];
+        elseif ($nilaiAkhir >= 56) return ["C", 2.00];
+        elseif ($nilaiAkhir >= 51) return ["C-", 1.70];
+        elseif ($nilaiAkhir >= 36) return ["D", 1.00];
+        else return ["E", 0.00];
+    }
+
+    function statusKelulusan($grade) {
+        if (in_array($grade, ["D", "E"])) return "Gagal";
+        else return "Lulus";
+    }
+
+    for ($i = 1; $i <= 5; $i++) {
+        ${"nilaiAkhir$i"} = hitungNilai(${"nilaiHadir$i"}, ${"nilaiTugas$i"}, ${"nilaiUTS$i"}, ${"nilaiUAS$i"});
+        list(${"grade$i"}, ${"mutu$i"}) = hitungGrade(${"nilaiAkhir$i"}, ${"nilaiHadir$i"});
+        ${"status$i"} = statusKelulusan(${"grade$i"});
+        ${"bobot$i"} = ${"mutu$i"} * ${"sksMatkul$i"};
+    }
+
+    $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
+    $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
+    $IPK = $totalBobot / $totalSKS;
+
+    for ($i = 1; $i <= 5; $i++) {
+        echo "<div style='border-bottom:1px solid #fff; margin-bottom:15px; padding-bottom:10px;'>";
+        echo "<strong>Nama Matakuliah ke-$i:</strong> ${'namaMatkul'.$i}<br>";
+        echo "SKS: ${'sksMatkul'.$i}<br>";
+        echo "Kehadiran: ${'nilaiHadir'.$i}<br>";
+        echo "Tugas: ${'nilaiTugas'.$i}<br>";
+        echo "UTS: ${'nilaiUTS'.$i}<br>";
+        echo "UAS: ${'nilaiUAS'.$i}<br>";
+        echo "Nilai Akhir: " . number_format(${"nilaiAkhir$i"}, 2) . "<br>";
+        echo "Grade: ${'grade'.$i}<br>";
+        echo "Angka Mutu: " . number_format(${"mutu$i"}, 2) . "<br>";
+        echo "Bobot: " . number_format(${"bobot$i"}, 2) . "<br>";
+        echo "Status: ${'status'.$i}<br>";
+        echo "</div>";
+    }
+
+    echo "<strong>Total Bobot:</strong> " . number_format($totalBobot, 2) . "<br>";
+    echo "<strong>Total SKS:</strong> $totalSKS<br>";
+    echo "<strong>IPK:</strong> " . number_format($IPK, 2) . "<br>";
+    ?>
+</section>
+
+
     <section id="about">
       <?php
       $nim = "2511500039";
