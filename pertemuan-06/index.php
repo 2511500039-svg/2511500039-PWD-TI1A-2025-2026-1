@@ -30,36 +30,38 @@
       <h2>Selamat Datang</h2>
       <?php
       echo "Halo dunia!<br>";
-      echo "nama saya alkautsar";
+      echo "Nama saya Alkautsar";
       ?>  
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
-    <section id="about">
-
     <?php
-      $nim = "4511500028";
-      $NIM = "2511500039";
-      $Nim = "";
-      $Nama = "Say'yid abdullah";
-      $nama = 'Al/Kautsar Benyamin';
+      $nim = "2511500039";
+      $namaLengkap = "Muhammad Alkautsar Dirgantara";
+      $orangTua = "Yurinalika (ibu), Ridwan (ayah)";
+      $saudara = "Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)";
+      $tempatTinggal = "Komplek Timah Sampur Atas, Gang Safir Biru XV";
+      $tempatLahir = "Pangkalpinang";
+      $tanggalLahir = "08 April 2007";
+      $hobi = "Bermain game, membaca komik, dan mendengarkan musik 🎵";
+      $pasangan = "Pacar ada, Destania Idhila ♥";
+      $pekerjaan = "Tidak bekerja tapi seorang mahasiswa ©";
+      $motto = "Makanlah sebelum merasa kelaparan";
     ?>
+
+    <section id="about">
       <h2>Tentang Saya</h2>
-      <p><strong>NIM:</strong> 
-        <?php
-          echo $nama;
-        ?>
-      </p>
-      <p><strong>Nama Lengkap:</strong> Muhammad Alkautsar Dirgantara &#127926;</p>
-      <p><strong>Nama Orang Tua:</strong> Yurinalika (ibu), Ridwan (ayah)</p>
-      <p><strong>Nama Saudara:</strong> Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)</p>
-      <p><strong>Tempat Tinggal:</strong> Komplek Timah Sampur Atas, Gang Safir Biru XV</p>
-      <p><strong>Tempat Lahir:</strong> Pangkalpinang</p>
-      <p><strong>Tanggal Lahir:</strong> 08 April 2007</p>
-      <p><strong>Hobi:</strong> Bermain game, membaca komik, dan mendengarkan musik &#127926;</p>
-      <p><strong>Pasangan:</strong> Pacar ada, Destania Idhila &hearts;</p>
-      <p><strong>Pekerjaan:</strong> Tidak bekerja tapi seorang mahasiswa &copy;</p>
-      <p><strong>Motto Hidup:</strong> Makanlah sebelum merasa kelaparan</p>
+      <p><strong>NIM:</strong> <?= $nim; ?></p>
+      <p><strong>Nama Lengkap:</strong> <?= $namaLengkap; ?></p>
+      <p><strong>Nama Orang Tua:</strong> <?= $orangTua; ?></p>
+      <p><strong>Nama Saudara:</strong> <?= $saudara; ?></p>
+      <p><strong>Tempat Tinggal:</strong> <?= $tempatTinggal; ?></p>
+      <p><strong>Tempat Lahir:</strong> <?= $tempatLahir; ?></p>
+      <p><strong>Tanggal Lahir:</strong> <?= $tanggalLahir; ?></p>
+      <p><strong>Hobi:</strong> <?= $hobi; ?></p>
+      <p><strong>Pasangan:</strong> <?= $pasangan; ?></p>
+      <p><strong>Pekerjaan:</strong> <?= $pekerjaan; ?></p>
+      <p><strong>Motto Hidup:</strong> <?= $motto; ?></p>
     </section>
 
     <section id="contact">
@@ -87,7 +89,7 @@
   </main>
 
   <footer>
-    <p>&copy; Muhammad Alkautsar Dirgantara - 2511500039</p>
+    <p>&copy; <?= $namaLengkap; ?> - <?= $nim; ?></p>
   </footer>
 
 </body>
