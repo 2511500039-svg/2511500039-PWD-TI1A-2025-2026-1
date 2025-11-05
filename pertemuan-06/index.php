@@ -70,6 +70,22 @@
     $namaMatkul3 = "Basis Data";
     $namaMatkul4 = "Pemrograman Berorientasi Objek";
     $namaMatkul5 = "Pemrograman Web Dasar";
+
+        $sksMatkul1 = 4;
+    $sksMatkul2 = 2;
+    $sksMatkul3 = 4;
+    $sksMatkul4 = 3;
+    $sksMatkul5 = 3;
+
+    $nilaiHadir1 = 90; $nilaiTugas1 = 60; $nilaiUTS1 = 80; $nilaiUAS1 = 70;
+    $nilaiHadir2 = 70; $nilaiTugas2 = 50; $nilaiUTS2 = 60; $nilaiUAS2 = 80;
+    $nilaiHadir3 = 80; $nilaiTugas3 = 70; $nilaiUTS3 = 75; $nilaiUAS3 = 85;
+    $nilaiHadir4 = 85; $nilaiTugas4 = 80; $nilaiUTS4 = 70; $nilaiUAS4 = 90;
+    $nilaiHadir5 = 69; $nilaiTugas5 = 80; $nilaiUTS5 = 90; $nilaiUAS5 = 100;
+
+    function hitungNilai($hadir, $tugas, $uts, $uas) {
+        return (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
+    }
     ?>
 </section>
 
