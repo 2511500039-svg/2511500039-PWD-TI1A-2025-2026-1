@@ -90,9 +90,9 @@
       </form>
     </section>
     <p>Terimakasih sudah menghubungi kami:</p>
-      <label>Nama: <strong><?php echo $sesname; ?></strong></label>
-      <label>Email: <strong><?php echo $sesemail; ?></strong></label>
-      <label>Pesan: <strong><?php echo $sespesan; ?></strong></label>
+      <label>Nama: Raka Gibran <strong><?php echo $sesname; ?></strong></label>
+      <label>Email: Mantap@Cees.com <strong><?php echo $sesemail; ?></strong></label>
+      <label>Pesan: Oalah dek dek <strong><?php echo $sespesan; ?></strong></label>
   </main>
 
   <footer>
