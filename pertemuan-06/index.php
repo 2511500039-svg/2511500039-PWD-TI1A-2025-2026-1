@@ -116,6 +116,26 @@
     $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
     $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
     $IPK = $totalBobot / $totalSKS;
+
+    for ($i = 1; $i <= 5; $i++) {
+        echo "<div style='border-bottom:1px solid #fff; margin-bottom:15px; padding-bottom:10px;'>";
+        echo "<strong>Nama Matakuliah ke-$i:</strong> ${'namaMatkul'.$i}<br>";
+        echo "SKS: ${'sksMatkul'.$i}<br>";
+        echo "Kehadiran: ${'nilaiHadir'.$i}<br>";
+        echo "Tugas: ${'nilaiTugas'.$i}<br>";
+        echo "UTS: ${'nilaiUTS'.$i}<br>";
+        echo "UAS: ${'nilaiUAS'.$i}<br>";
+        echo "Nilai Akhir: " . number_format(${"nilaiAkhir$i"}, 2) . "<br>";
+        echo "Grade: ${'grade'.$i}<br>";
+        echo "Angka Mutu: " . number_format(${"mutu$i"}, 2) . "<br>";
+        echo "Bobot: " . number_format(${"bobot$i"}, 2) . "<br>";
+        echo "Status: ${'status'.$i}<br>";
+        echo "</div>";
+    }
+
+    echo "<strong>Total Bobot:</strong> " . number_format($totalBobot, 2) . "<br>";
+    echo "<strong>Total SKS:</strong> $totalSKS<br>";
+    echo "<strong>IPK:</strong> " . number_format($IPK, 2) . "<br>";
     ?>
 </section>
 
