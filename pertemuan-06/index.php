@@ -86,6 +86,36 @@
     function hitungNilai($hadir, $tugas, $uts, $uas) {
         return (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
     }
+
+        function hitungGrade($nilaiAkhir, $hadir) {
+        if ($hadir < 70) return ["E", 0.00];
+        if ($nilaiAkhir >= 91) return ["A", 4.00];
+        elseif ($nilaiAkhir >= 81) return ["A-", 3.70];
+        elseif ($nilaiAkhir >= 76) return ["B+", 3.30];
+        elseif ($nilaiAkhir >= 71) return ["B", 3.00];
+        elseif ($nilaiAkhir >= 66) return ["B-", 2.70];
+        elseif ($nilaiAkhir >= 61) return ["C+", 2.30];
+        elseif ($nilaiAkhir >= 56) return ["C", 2.00];
+        elseif ($nilaiAkhir >= 51) return ["C-", 1.70];
+        elseif ($nilaiAkhir >= 36) return ["D", 1.00];
+        else return ["E", 0.00];
+    }
+
+    function statusKelulusan($grade) {
+        if (in_array($grade, ["D", "E"])) return "Gagal";
+        else return "Lulus";
+    }
+
+    for ($i = 1; $i <= 5; $i++) {
+        ${"nilaiAkhir$i"} = hitungNilai(${"nilaiHadir$i"}, ${"nilaiTugas$i"}, ${"nilaiUTS$i"}, ${"nilaiUAS$i"});
+        list(${"grade$i"}, ${"mutu$i"}) = hitungGrade(${"nilaiAkhir$i"}, ${"nilaiHadir$i"});
+        ${"status$i"} = statusKelulusan(${"grade$i"});
+        ${"bobot$i"} = ${"mutu$i"} * ${"sksMatkul$i"};
+    }
+
+    $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
+    $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
+    $IPK = $totalBobot / $totalSKS;
     ?>
 </section>
 
