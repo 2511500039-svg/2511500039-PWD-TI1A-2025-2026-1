@@ -87,17 +87,27 @@
   <h2>Nilai Saya</h2>
 
   <?php
-  // --- Data mata kuliah sesuai instruksi ---
-  $matkul = [
-    ["Pemrograman Web Dasar", 4, 90, 60, 80, 70],
-    ["Logika Informatika", 3, 69, 80, 90, 100],
-    ["Konsep Basis Data", 4, 80, 70, 75, 85],
-    ["Kalkulus", 2, 70, 50, 60, 80],
-    ["Aplikasi Perkantoran", 3, 85, 80, 70, 90]
-  ];
+  $namaMatkul1 = "Pemrograman Web Dasar";
+  $namaMatkul2 = "Logika Informatika";
+  $namaMatkul3 = "Konsep Basis Data";
+  $namaMatkul4 = "Kalkulus";
+  $namaMatkul5 = "Aplikasi Perkantoran";
+
+  $sksMatkul1 = 4;
+  $sksMatkul2 = 3;
+  $sksMatkul3 = 4;
+  $sksMatkul4 = 2;
+  $sksMatkul5 = 3;
+
+  $nilaiHadir1 = 90;  $nilaiTugas1 = 60;  $nilaiUTS1 = 80;  $nilaiUAS1 = 70;
+  $nilaiHadir2 = 69;  $nilaiTugas2 = 80;  $nilaiUTS2 = 90;  $nilaiUAS2 = 100;
+  $nilaiHadir3 = 80;  $nilaiTugas3 = 70;  $nilaiUTS3 = 75;  $nilaiUAS3 = 85;
+  $nilaiHadir4 = 70;  $nilaiTugas4 = 50;  $nilaiUTS4 = 60;  $nilaiUAS4 = 80;
+  $nilaiHadir5 = 85;  $nilaiTugas5 = 80;  $nilaiUTS5 = 70;  $nilaiUAS5 = 90;
 
   function hitungNilai($hadir, $tugas, $uts, $uas, $sks) {
     $nilaiAkhir = (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
+
     if ($hadir < 70) return [$nilaiAkhir, "E", 0.00, 0.00, "Gagal"];
     elseif ($nilaiAkhir >= 91) $grade = ["A", 4.00];
     elseif ($nilaiAkhir >= 81) $grade = ["A-", 3.70];
@@ -109,45 +119,59 @@
     elseif ($nilaiAkhir >= 51) $grade = ["C-", 1.70];
     elseif ($nilaiAkhir >= 36) $grade = ["D", 1.00];
     else $grade = ["E", 0.00];
+
     $bobot = $grade[1] * $sks;
     $status = ($grade[0] == "D" || $grade[0] == "E") ? "Gagal" : "Lulus";
     return [$nilaiAkhir, $grade[0], $grade[1], $bobot, $status];
   }
+  list($nilaiAkhir1, $grade1, $mutu1, $bobot1, $status1) = hitungNilai($nilaiHadir1, $nilaiTugas1, $nilaiUTS1, $nilaiUAS1, $sksMatkul1);
+  list($nilaiAkhir2, $grade2, $mutu2, $bobot2, $status2) = hitungNilai($nilaiHadir2, $nilaiTugas2, $nilaiUTS2, $nilaiUAS2, $sksMatkul2);
+  list($nilaiAkhir3, $grade3, $mutu3, $bobot3, $status3) = hitungNilai($nilaiHadir3, $nilaiTugas3, $nilaiUTS3, $nilaiUAS3, $sksMatkul3);
+  list($nilaiAkhir4, $grade4, $mutu4, $bobot4, $status4) = hitungNilai($nilaiHadir4, $nilaiTugas4, $nilaiUTS4, $nilaiUAS4, $sksMatkul4);
+  list($nilaiAkhir5, $grade5, $mutu5, $bobot5, $status5) = hitungNilai($nilaiHadir5, $nilaiTugas5, $nilaiUTS5, $nilaiUAS5, $sksMatkul5);
 
-  $totalBobot = 0; $totalSKS = 0;
-
-  // --- Tampilkan tabel per mata kuliah ---
-  foreach ($matkul as $i => $m) {
-    list($nama, $sks, $hadir, $tugas, $uts, $uas) = $m;
-    list($nilaiAkhir, $grade, $mutu, $bobot, $status) = hitungNilai($hadir, $tugas, $uts, $uas, $sks);
-    $totalBobot += $bobot;
-    $totalSKS += $sks;
+  $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
+  $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
+  $IPK = $totalBobot / $totalSKS;
   ?>
 
+  <?php
+  for ($i = 1; $i <= 5; $i++) {
+    $namaVar = ${"namaMatkul$i"};
+    $sksVar = ${"sksMatkul$i"};
+    $hadirVar = ${"nilaiHadir$i"};
+    $tugasVar = ${"nilaiTugas$i"};
+    $utsVar = ${"nilaiUTS$i"};
+    $uasVar = ${"nilaiUAS$i"};
+    $akhirVar = ${"nilaiAkhir$i"};
+    $gradeVar = ${"grade$i"};
+    $mutuVar = ${"mutu$i"};
+    $bobotVar = ${"bobot$i"};
+    $statusVar = ${"status$i"};
+  ?>
   <table>
-    <tr><th colspan="2"><?= $nama; ?></th></tr>
-    <tr><td><strong>SKS</strong></td><td><?= $sks; ?></td></tr>
-    <tr><td><strong>Kehadiran</strong></td><td><?= $hadir; ?></td></tr>
-    <tr><td><strong>Tugas</strong></td><td><?= $tugas; ?></td></tr>
-    <tr><td><strong>UTS</strong></td><td><?= $uts; ?></td></tr>
-    <tr><td><strong>UAS</strong></td><td><?= $uas; ?></td></tr>
-    <tr><td><strong>Nilai Akhir</strong></td><td><?= number_format($nilaiAkhir,2); ?></td></tr>
-    <tr><td><strong>Grade</strong></td><td><?= $grade; ?></td></tr>
-    <tr><td><strong>Angka Mutu</strong></td><td><?= number_format($mutu,2); ?></td></tr>
-    <tr><td><strong>Bobot</strong></td><td><?= number_format($bobot,2); ?></td></tr>
-    <tr><td><strong>Status</strong></td><td><?= $status; ?></td></tr>
+    <tr><th colspan="2"><?= $namaVar; ?></th></tr>
+    <tr><td><strong>SKS</strong></td><td><?= $sksVar; ?></td></tr>
+    <tr><td><strong>Kehadiran</strong></td><td><?= $hadirVar; ?></td></tr>
+    <tr><td><strong>Tugas</strong></td><td><?= $tugasVar; ?></td></tr>
+    <tr><td><strong>UTS</strong></td><td><?= $utsVar; ?></td></tr>
+    <tr><td><strong>UAS</strong></td><td><?= $uasVar; ?></td></tr>
+    <tr><td><strong>Nilai Akhir</strong></td><td><?= number_format($akhirVar,2); ?></td></tr>
+    <tr><td><strong>Grade</strong></td><td><strong><?= $gradeVar; ?></strong></td></tr>
+    <tr><td><strong>Angka Mutu</strong></td><td><?= number_format($mutuVar,2); ?></td></tr>
+    <tr><td><strong>Bobot</strong></td><td><?= number_format($bobotVar,2); ?></td></tr>
+    <tr><td><strong>Status</strong></td><td><strong><?= $statusVar; ?></strong></td></tr>
   </table>
-
   <?php } ?>
 
   <h2>Rekapitulasi IPK</h2>
   <table>
-    <tr><th>Total Bobot</th><td><?= number_format($totalBobot,2); ?></td></tr>
-    <tr><th>Total SKS</th><td><?= $totalSKS; ?></td></tr>
-    <tr><th>IPK</th><td><?= number_format($totalBobot / $totalSKS,2); ?></td></tr>
+    <tr><th>Total Bobot</th><td><strong><?= number_format($totalBobot,2); ?></strong></td></tr>
+    <tr><th>Total SKS</th><td><strong><?= $totalSKS; ?></strong></td></tr>
+    <tr><th>IPK</th><td><strong><?= number_format($IPK,2); ?></strong></td></tr>
   </table>
-
 </section>
+
 
 <section id="contact">
   <h2>Kontak Kami</h2>
