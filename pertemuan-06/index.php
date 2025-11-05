@@ -37,7 +37,7 @@
 
     <?php
       $nim = "2511500039";
-      $namaLengkap = "Muhammad Alkautsar Dirgantara";
+      $namaLengkap = "Muhammad Alkautsar Dirgantaraa";
       $orangTua = "Yurinalika (ibu), Ridwan (ayah)";
       $saudara = "Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)";
       $tempatTinggal = "Komplek Timah Sampur Atas, Gang Safir Biru XV";
