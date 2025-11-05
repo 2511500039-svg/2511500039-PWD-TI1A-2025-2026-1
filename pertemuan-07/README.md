@@ -11,4 +11,5 @@ belajar:
     <li>session di get_proses.php</li>
     <li>menampilkan sesion dari get proses php ke get php</li>
     <li>redirect dari get proses php ke get php</li>
+    <li>COPAS GET PHP DAN GET PROSES PHP</li>
 </ol>
