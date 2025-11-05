@@ -1,5 +1,6 @@
 <?php
-  echo $_GET{txtNama};
+  session_start();
+  echo $_SESSION{"nama"};
 ?>
 <!DOCTYPE html>
 <html lang="en">
