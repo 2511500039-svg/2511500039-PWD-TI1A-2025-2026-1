@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Judul Halaman</title>
+  <title>Nilai Mahasiswa</title>
   <link rel="stylesheet" href="style.css">
   <style>
     body { background-color: white; color: black; font-family: Arial, sans-serif; }
     table {
-      width: 90%;
-      margin: 20px auto;
+      width: 70%;
+      margin: 25px auto;
       border-collapse: collapse;
       text-align: center;
     }
@@ -18,10 +18,15 @@
       padding: 8px;
     }
     th {
-      background-color: #f0f0f0;
+      background-color: #f0f8ff;
+      color: blue;
     }
     h2 {
       text-align: center;
+      color: blue;
+    }
+    strong {
+      color: blue;
     }
   </style>
 </head>
@@ -79,22 +84,17 @@
     </section>
 
 <section id="ipk" style="background-color:white; padding:30px; color:black;">
-  <h2 style="text-align:center;">Nilai Saya</h2>
+  <h2>Nilai Saya</h2>
+
   <?php
-  $namaMatkul1 = "Pemrograman Dasar";
-  $sksMatkul1 = 4; $nilaiHadir1 = 90; $nilaiTugas1 = 60; $nilaiUTS1 = 80; $nilaiUAS1 = 70;
-
-  $namaMatkul2 = "Kalkulus";
-  $sksMatkul2 = 2; $nilaiHadir2 = 70; $nilaiTugas2 = 50; $nilaiUTS2 = 60; $nilaiUAS2 = 80;
-
-  $namaMatkul3 = "Konsep Basis Data";
-  $sksMatkul3 = 4; $nilaiHadir3 = 80; $nilaiTugas3 = 70; $nilaiUTS3 = 75; $nilaiUAS3 = 85;
-
-  $namaMatkul4 = "Aplikasi Perkantoran";
-  $sksMatkul4 = 3; $nilaiHadir4 = 85; $nilaiTugas4 = 80; $nilaiUTS4 = 70; $nilaiUAS4 = 90;
-
-  $namaMatkul5 = "Logika Informatika";
-  $sksMatkul5 = 3; $nilaiHadir5 = 69; $nilaiTugas5 = 80; $nilaiUTS5 = 90; $nilaiUAS5 = 100;
+  // --- Data mata kuliah sesuai instruksi ---
+  $matkul = [
+    ["Pemrograman Web Dasar", 4, 90, 60, 80, 70],
+    ["Logika Informatika", 3, 69, 80, 90, 100],
+    ["Konsep Basis Data", 4, 80, 70, 75, 85],
+    ["Kalkulus", 2, 70, 50, 60, 80],
+    ["Aplikasi Perkantoran", 3, 85, 80, 70, 90]
+  ];
 
   function hitungNilai($hadir, $tugas, $uts, $uas, $sks) {
     $nilaiAkhir = (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
@@ -114,113 +114,62 @@
     return [$nilaiAkhir, $grade[0], $grade[1], $bobot, $status];
   }
 
-  list($nilaiAkhir1, $grade1, $mutu1, $bobot1, $status1) = hitungNilai($nilaiHadir1, $nilaiTugas1, $nilaiUTS1, $nilaiUAS1, $sksMatkul1);
-  list($nilaiAkhir2, $grade2, $mutu2, $bobot2, $status2) = hitungNilai($nilaiHadir2, $nilaiTugas2, $nilaiUTS2, $nilaiUAS2, $sksMatkul2);
-  list($nilaiAkhir3, $grade3, $mutu3, $bobot3, $status3) = hitungNilai($nilaiHadir3, $nilaiTugas3, $nilaiUTS3, $nilaiUAS3, $sksMatkul3);
-  list($nilaiAkhir4, $grade4, $mutu4, $bobot4, $status4) = hitungNilai($nilaiHadir4, $nilaiTugas4, $nilaiUTS4, $nilaiUAS4, $sksMatkul4);
-  list($nilaiAkhir5, $grade5, $mutu5, $bobot5, $status5) = hitungNilai($nilaiHadir5, $nilaiTugas5, $nilaiUTS5, $nilaiUAS5, $sksMatkul5);
+  $totalBobot = 0; $totalSKS = 0;
 
-  $totalBobot = $bobot1 + $bobot2 + $bobot3 + $bobot4 + $bobot5;
-  $totalSKS = $sksMatkul1 + $sksMatkul2 + $sksMatkul3 + $sksMatkul4 + $sksMatkul5;
-  $IPK = $totalBobot / $totalSKS;
+  // --- Tampilkan tabel per mata kuliah ---
+  foreach ($matkul as $i => $m) {
+    list($nama, $sks, $hadir, $tugas, $uts, $uas) = $m;
+    list($nilaiAkhir, $grade, $mutu, $bobot, $status) = hitungNilai($hadir, $tugas, $uts, $uas, $sks);
+    $totalBobot += $bobot;
+    $totalSKS += $sks;
   ?>
 
-  <div style="width:70%;margin:auto;">
-    <p><strong>Nama Matakuliah ke-1:</strong> <?= $namaMatkul1; ?></p>
-    <p><strong>SKS:</strong> <?= $sksMatkul1; ?></p>
-    <p><strong>Kehadiran:</strong> <?= $nilaiHadir1; ?></p>
-    <p><strong>Tugas:</strong> <?= $nilaiTugas1; ?></p>
-    <p><strong>UTS:</strong> <?= $nilaiUTS1; ?></p>
-    <p><strong>UAS:</strong> <?= $nilaiUAS1; ?></p>
-    <p><strong>Nilai Akhir:</strong> <?= number_format($nilaiAkhir1,2); ?></p>
-    <p><strong>Grade:</strong> <?= $grade1; ?></p>
-    <p><strong>Angka Mutu:</strong> <?= number_format($mutu1,2); ?></p>
-    <p><strong>Bobot:</strong> <?= number_format($bobot1,2); ?></p>
-    <p><strong>Status:</strong> <?= $status1; ?></p>
-    <hr>
+  <table>
+    <tr><th colspan="2"><?= $nama; ?></th></tr>
+    <tr><td><strong>SKS</strong></td><td><?= $sks; ?></td></tr>
+    <tr><td><strong>Kehadiran</strong></td><td><?= $hadir; ?></td></tr>
+    <tr><td><strong>Tugas</strong></td><td><?= $tugas; ?></td></tr>
+    <tr><td><strong>UTS</strong></td><td><?= $uts; ?></td></tr>
+    <tr><td><strong>UAS</strong></td><td><?= $uas; ?></td></tr>
+    <tr><td><strong>Nilai Akhir</strong></td><td><?= number_format($nilaiAkhir,2); ?></td></tr>
+    <tr><td><strong>Grade</strong></td><td><?= $grade; ?></td></tr>
+    <tr><td><strong>Angka Mutu</strong></td><td><?= number_format($mutu,2); ?></td></tr>
+    <tr><td><strong>Bobot</strong></td><td><?= number_format($bobot,2); ?></td></tr>
+    <tr><td><strong>Status</strong></td><td><?= $status; ?></td></tr>
+  </table>
 
-    <p><strong>Nama Matakuliah ke-2:</strong> <?= $namaMatkul2; ?></p>
-    <p><strong>SKS:</strong> <?= $sksMatkul2; ?></p>
-    <p><strong>Kehadiran:</strong> <?= $nilaiHadir2; ?></p>
-    <p><strong>Tugas:</strong> <?= $nilaiTugas2; ?></p>
-    <p><strong>UTS:</strong> <?= $nilaiUTS2; ?></p>
-    <p><strong>UAS:</strong> <?= $nilaiUAS2; ?></p>
-    <p><strong>Nilai Akhir:</strong> <?= number_format($nilaiAkhir2,2); ?></p>
-    <p><strong>Grade:</strong> <?= $grade2; ?></p>
-    <p><strong>Angka Mutu:</strong> <?= number_format($mutu2,2); ?></p>
-    <p><strong>Bobot:</strong> <?= number_format($bobot2,2); ?></p>
-    <p><strong>Status:</strong> <?= $status2; ?></p>
-    <hr>
+  <?php } ?>
 
-    <p><strong>Nama Matakuliah ke-3:</strong> <?= $namaMatkul3; ?></p>
-    <p><strong>SKS:</strong> <?= $sksMatkul3; ?></p>
-    <p><strong>Kehadiran:</strong> <?= $nilaiHadir3; ?></p>
-    <p><strong>Tugas:</strong> <?= $nilaiTugas3; ?></p>
-    <p><strong>UTS:</strong> <?= $nilaiUTS3; ?></p>
-    <p><strong>UAS:</strong> <?= $nilaiUAS3; ?></p>
-    <p><strong>Nilai Akhir:</strong> <?= number_format($nilaiAkhir3,2); ?></p>
-    <p><strong>Grade:</strong> <?= $grade3; ?></p>
-    <p><strong>Angka Mutu:</strong> <?= number_format($mutu3,2); ?></p>
-    <p><strong>Bobot:</strong> <?= number_format($bobot3,2); ?></p>
-    <p><strong>Status:</strong> <?= $status3; ?></p>
-    <hr>
+  <h2>Rekapitulasi IPK</h2>
+  <table>
+    <tr><th>Total Bobot</th><td><?= number_format($totalBobot,2); ?></td></tr>
+    <tr><th>Total SKS</th><td><?= $totalSKS; ?></td></tr>
+    <tr><th>IPK</th><td><?= number_format($totalBobot / $totalSKS,2); ?></td></tr>
+  </table>
 
-    <p><strong>Nama Matakuliah ke-4:</strong> <?= $namaMatkul4; ?></p>
-    <p><strong>SKS:</strong> <?= $sksMatkul4; ?></p>
-    <p><strong>Kehadiran:</strong> <?= $nilaiHadir4; ?></p>
-    <p><strong>Tugas:</strong> <?= $nilaiTugas4; ?></p>
-    <p><strong>UTS:</strong> <?= $nilaiUTS4; ?></p>
-    <p><strong>UAS:</strong> <?= $nilaiUAS4; ?></p>
-    <p><strong>Nilai Akhir:</strong> <?= number_format($nilaiAkhir4,2); ?></p>
-    <p><strong>Grade:</strong> <?= $grade4; ?></p>
-    <p><strong>Angka Mutu:</strong> <?= number_format($mutu4,2); ?></p>
-    <p><strong>Bobot:</strong> <?= number_format($bobot4,2); ?></p>
-    <p><strong>Status:</strong> <?= $status4; ?></p>
-    <hr>
-
-    <p><strong>Nama Matakuliah ke-5:</strong> <?= $namaMatkul5; ?></p>
-    <p><strong>SKS:</strong> <?= $sksMatkul5; ?></p>
-    <p><strong>Kehadiran:</strong> <?= $nilaiHadir5; ?></p>
-    <p><strong>Tugas:</strong> <?= $nilaiTugas5; ?></p>
-    <p><strong>UTS:</strong> <?= $nilaiUTS5; ?></p>
-    <p><strong>UAS:</strong> <?= $nilaiUAS5; ?></p>
-    <p><strong>Nilai Akhir:</strong> <?= number_format($nilaiAkhir5,2); ?></p>
-    <p><strong>Grade:</strong> <?= $grade5; ?></p>
-    <p><strong>Angka Mutu:</strong> <?= number_format($mutu5,2); ?></p>
-    <p><strong>Bobot:</strong> <?= number_format($bobot5,2); ?></p>
-    <p><strong>Status:</strong> <?= $status5; ?></p>
-    <hr>
-
-    <p><strong>Total Bobot:</strong> <?= number_format($totalBobot,2); ?></p>
-    <p><strong>Total SKS:</strong> <?= $totalSKS; ?></p>
-    <p><strong>IPK:</strong> <?= number_format($IPK,2); ?></p>
-  </div>
 </section>
 
+<section id="contact">
+  <h2>Kontak Kami</h2>
+  <form action="" method="GET">
+    <label for="txtNama"><span>Nama:</span>
+      <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required>
+    </label>
+    <label for="txtEmail"><span>Email:</span>
+      <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required>
+    </label>
+    <label for="txtPesan"><span>Pesan Anda:</span>
+      <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
+    </label>
+    <button type="submit">Kirim</button>
+    <button type="reset">Batal</button>
+  </form>
+</section>
 
-    <section id="contact">
-      <h2>Kontak Kami</h2>
-      <form action="" method="GET">
-        <label for="txtNama"><span>Nama:</span>
-          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
-        </label>
-        <label for="txtEmail"><span>Email:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
-        </label>
-        <label for="txtPesan"><span>Pesan Anda:</span>
-          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
-          <small id="charCount">0/200 karakter</small>
-        </label>
-        <button type="submit">Kirim</button>
-        <button type="reset">Batal</button>
-      </form>
-    </section>
   </main>
 
   <footer>
     <p>&copy; <?= $namaLengkap; ?> - <?= $nim; ?></p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
