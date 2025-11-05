@@ -77,23 +77,23 @@
       <p><strong>Pekerjaan:</strong> <?= $pekerjaan; ?></p>
       <p><strong>Motto Hidup:</strong> <?= $motto; ?></p>
     </section>
-    
+
 <section id="ipk" style="background-color:white; padding:30px; color:black;">
   <h2 style="text-align:center;">Nilai Saya</h2>
   <?php
-  $namaMatkul1 = "Algoritma dan Struktur Data";
+  $namaMatkul1 = "Pemrograman Dasar";
   $sksMatkul1 = 4; $nilaiHadir1 = 90; $nilaiTugas1 = 60; $nilaiUTS1 = 80; $nilaiUAS1 = 70;
 
-  $namaMatkul2 = "Agama";
+  $namaMatkul2 = "Kalkulus";
   $sksMatkul2 = 2; $nilaiHadir2 = 70; $nilaiTugas2 = 50; $nilaiUTS2 = 60; $nilaiUAS2 = 80;
 
-  $namaMatkul3 = "Basis Data";
+  $namaMatkul3 = "Konsep Basis Data";
   $sksMatkul3 = 4; $nilaiHadir3 = 80; $nilaiTugas3 = 70; $nilaiUTS3 = 75; $nilaiUAS3 = 85;
 
-  $namaMatkul4 = "Pemrograman Berorientasi Objek";
+  $namaMatkul4 = "Aplikasi Perkantoran";
   $sksMatkul4 = 3; $nilaiHadir4 = 85; $nilaiTugas4 = 80; $nilaiUTS4 = 70; $nilaiUAS4 = 90;
 
-  $namaMatkul5 = "Pemrograman Web Dasar";
+  $namaMatkul5 = "Logika Informatika";
   $sksMatkul5 = 3; $nilaiHadir5 = 69; $nilaiTugas5 = 80; $nilaiUTS5 = 90; $nilaiUAS5 = 100;
 
   function hitungNilai($hadir, $tugas, $uts, $uas, $sks) {
