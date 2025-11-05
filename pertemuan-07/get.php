@@ -1,5 +1,5 @@
 <?php
-
+  echo $_GET{txtNama};
 ?>
 <!DOCTYPE html>
 <html lang="en">
