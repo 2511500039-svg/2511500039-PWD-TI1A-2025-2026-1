@@ -8,17 +8,20 @@
   <style>
     body { background-color: white; color: black; font-family: Arial, sans-serif; }
     table {
-      width: 100%;
+      width: 90%;
+      margin: 20px auto;
       border-collapse: collapse;
-      margin-top: 15px;
+      text-align: center;
     }
     th, td {
-      border: 1px solid black;
-      padding: 8px 12px;
-      text-align: center;
+      border: 1px solid #000;
+      padding: 8px;
     }
     th {
       background-color: #f0f0f0;
+    }
+    h2 {
+      text-align: center;
     }
   </style>
 </head>
@@ -47,16 +50,15 @@
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
-    <section id="ipk" style="background-color:white; border-radius:15px; padding:30px; max-width:900px; margin:20px auto; color:black;">
-      <h2 style="text-align:center;">Nilai Saya</h2>
+    <section id="ipk">
+      <h2>Nilai Saya</h2>
       <?php
-      $mataKuliah = [
-        ["Algoritma dan Struktur Data", 4, 90, 60, 80, 70],
-        ["Agama", 2, 70, 50, 60, 80],
-        ["Basis Data", 4, 80, 70, 75, 85],
-        ["Pemrograman Berorientasi Objek", 3, 85, 80, 70, 90],
-        ["Pemrograman Web Dasar", 3, 69, 80, 90, 100]
-      ];
+      $namaMatkul = ["Algoritma dan Struktur Data", "Agama", "Basis Data", "Pemrograman Berorientasi Objek", "Pemrograman Web Dasar"];
+      $sks = [4, 2, 4, 3, 3];
+      $nilaiHadir = [90, 70, 80, 85, 69];
+      $nilaiTugas = [60, 50, 70, 80, 80];
+      $nilaiUTS = [80, 60, 75, 70, 90];
+      $nilaiUAS = [70, 80, 85, 90, 100];
 
       function hitungNilai($hadir, $tugas, $uts, $uas) {
           return (0.1 * $hadir) + (0.2 * $tugas) + (0.3 * $uts) + (0.4 * $uas);
@@ -77,8 +79,7 @@
       }
 
       function statusKelulusan($grade) {
-          if ($grade == "D" || $grade == "E") return "Gagal";
-          return "Lulus";
+          return ($grade == "D" || $grade == "E") ? "Gagal" : "Lulus";
       }
 
       echo "<table>";
@@ -92,52 +93,106 @@
               <th>UAS</th>
               <th>Nilai Akhir</th>
               <th>Grade</th>
-              <th>Mutu</th>
+              <th>Angka Mutu</th>
               <th>Bobot</th>
               <th>Status</th>
             </tr>";
 
       $totalBobot = 0;
       $totalSKS = 0;
-      $no = 1;
 
-      foreach ($mataKuliah as $m) {
-          [$nama, $sks, $hadir, $tugas, $uts, $uas] = $m;
-          $nilaiAkhir = hitungNilai($hadir, $tugas, $uts, $uas);
-          [$grade, $mutu] = hitungGrade($nilaiAkhir, $hadir);
+      for ($i = 0; $i < count($namaMatkul); $i++) {
+          $nilaiAkhir = hitungNilai($nilaiHadir[$i], $nilaiTugas[$i], $nilaiUTS[$i], $nilaiUAS[$i]);
+          list($grade, $mutu) = hitungGrade($nilaiAkhir, $nilaiHadir[$i]);
           $status = statusKelulusan($grade);
-          $bobot = $mutu * $sks;
+          $bobot = $mutu * $sks[$i];
 
           $totalBobot += $bobot;
-          $totalSKS += $sks;
+          $totalSKS += $sks[$i];
 
           echo "<tr>
-                  <td>$no</td>
-                  <td>$nama</td>
-                  <td>$sks</td>
-                  <td>$hadir</td>
-                  <td>$tugas</td>
-                  <td>$uts</td>
-                  <td>$uas</td>
+                  <td>" . ($i + 1) . "</td>
+                  <td>{$namaMatkul[$i]}</td>
+                  <td>{$sks[$i]}</td>
+                  <td>{$nilaiHadir[$i]}</td>
+                  <td>{$nilaiTugas[$i]}</td>
+                  <td>{$nilaiUTS[$i]}</td>
+                  <td>{$nilaiUAS[$i]}</td>
                   <td>" . number_format($nilaiAkhir, 2) . "</td>
                   <td>$grade</td>
                   <td>" . number_format($mutu, 2) . "</td>
                   <td>" . number_format($bobot, 2) . "</td>
                   <td>$status</td>
                 </tr>";
-          $no++;
       }
 
       $IPK = $totalBobot / $totalSKS;
-      echo "<tr style='font-weight:bold; background-color:#e6e6e6;'>
-              <td colspan='10' style='text-align:right;'>Total</td>
-              <td>" . number_format($totalBobot, 2) . "</td>
-              <td></td>
+
+      echo "<tr style='font-weight:bold; background-color:#f9f9f9;'>
+              <td colspan='9'>Total</td>
+              <td colspan='2'>" . number_format($totalBobot, 2) . "</td>
+              <td>$totalSKS SKS</td>
             </tr>";
-      echo "<tr style='font-weight:bold; background-color:#dcdcdc;'>
-              <td colspan='10' style='text-align:right;'>IPK</td>
-              <td colspan='2'>" . number_format($IPK, 2) . "</td>
+
+      echo "<tr style='font-weight:bold; background-color:#d9fdd3;'>
+              <td colspan='12'>IPK: " . number_format($IPK, 2) . "</td>
             </tr>";
+
       echo "</table>";
       ?>
     </section>
+
+    <section id="about">
+      <?php
+      $nim = "2511500039";
+      $namaLengkap = "Muhammad Alkautsar Dirgantara";
+      $orangTua = "Yurinalika (ibu), Ridwan (ayah)";
+      $saudara = "Muhammad Aldhio Nanda Sepbriano (Kakak laki-laki)";
+      $tempatTinggal = "Komplek Timah Sampur Atas, Gang Safir Biru XV";
+      $tempatLahir = "Pangkalpinang";
+      $tanggalLahir = "08 April 2007";
+      $hobi = "Bermain game, membaca komik, dan mendengarkan musik 🎵";
+      $pasangan = "Pacar ada, Destania Idhila ♥";
+      $pekerjaan = "Tidak bekerja tapi seorang mahasiswa ©";
+      $motto = "Makanlah sebelum merasa kelaparan";
+      ?>
+      <h2>Tentang Saya</h2>
+      <p><strong>NIM:</strong> <?= $nim; ?></p>
+      <p><strong>Nama Lengkap:</strong> <?= $namaLengkap; ?></p>
+      <p><strong>Nama Orang Tua:</strong> <?= $orangTua; ?></p>
+      <p><strong>Nama Saudara:</strong> <?= $saudara; ?></p>
+      <p><strong>Tempat Tinggal:</strong> <?= $tempatTinggal; ?></p>
+      <p><strong>Tempat Lahir:</strong> <?= $tempatLahir; ?></p>
+      <p><strong>Tanggal Lahir:</strong> <?= $tanggalLahir; ?></p>
+      <p><strong>Hobi:</strong> <?= $hobi; ?></p>
+      <p><strong>Pasangan:</strong> <?= $pasangan; ?></p>
+      <p><strong>Pekerjaan:</strong> <?= $pekerjaan; ?></p>
+      <p><strong>Motto Hidup:</strong> <?= $motto; ?></p>
+    </section>
+
+    <section id="contact">
+      <h2>Kontak Kami</h2>
+      <form action="" method="GET">
+        <label for="txtNama"><span>Nama:</span>
+          <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
+        </label>
+        <label for="txtEmail"><span>Email:</span>
+          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan email" required autocomplete="email">
+        </label>
+        <label for="txtPesan"><span>Pesan Anda:</span>
+          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan anda..." required></textarea>
+          <small id="charCount">0/200 karakter</small>
+        </label>
+        <button type="submit">Kirim</button>
+        <button type="reset">Batal</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <?= $namaLengkap; ?> - <?= $nim; ?></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
