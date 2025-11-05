@@ -89,6 +89,10 @@
         <button type="reset">Batal</button>
       </form>
     </section>
+    <p>Terimakasih sudah menghubungi kami:</p>
+      <label>Nama: <strong><?php echo $sesname; ?></strong></label>
+      <label>Email: <strong><?php echo $sesemail; ?></strong></label>
+      <label>Pesan: <strong><?php echo $sespesan; ?></strong></label>
   </main>
 
   <footer>
