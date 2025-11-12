@@ -61,10 +61,10 @@ endif;
       $tempat = "Komplek Timah Sampur Atas";
       ?>
       <h2>Pendaftaran Profil Pengunjung</h2>
-       <form action="proses.php" method="POST">
+       <form action="" method="POST">
 
         <label for="txtNim"><span>Nim:</span>
-          <input type="text" id="txtNim" name="txtNama" placeholder="Masukkan nim" required autocomplete="nim">
+          <input type="text" id="txtNim" name="txtNim" placeholder="Masukkan nim" required autocomplete="nim">
         </label>
 
         <label for="namaLengkap"><span>Nama Lengkap:</span>
