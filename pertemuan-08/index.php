@@ -52,7 +52,7 @@ endif;
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
-    <section id="mantap cees"> 
+    <section id="mantapcees"> 
       <?php
       $nim = 2511500039;
       $NIM = "2511500039";
@@ -63,7 +63,7 @@ endif;
       <h2>Pendaftaran Profil Pengunjung</h2>
        <form action="proses.php" method="POST">
 
-        <label for="txtNama"><span>Nim:</span>
+        <label for="txtNim"><span>Nim:</span>
           <input type="text" id="txtNim" name="txtNama" placeholder="Masukkan nim" required autocomplete="nim">
         </label>
 
@@ -110,32 +110,46 @@ endif;
     </section>  
 
     <section id="about">
-      <?php
-      $nim = 2511500039;
-      $NIM = "2511500039";
-      $nama = "Muhammad Alkautsar Dirgantara";
-      $Nama = "Muhammad Alkautsar Dirgantara";
-      $tempat = "Komplek Timah Sampur Atas";
-      ?>
       <h2>Tentang Saya</h2>
       <p><strong>NIM:</strong>
-        <?php
-        echo $NIM;
-        ?>
-      </p>
-      <p><strong>Nama Lengkap:</strong>
-        <?php
-        echo $Nama;
-        ?> &#128526;
-      </p>
-      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
-      <p><strong>Tanggal Lahir:</strong> 8 April 2007</p>
-      <p><strong>Hobi:</strong> Nyemil, main game, dan mendengar musik &#127926;</p>
-      <p><strong>Pasangan:</strong> Belum ada &hearts;</p>
-      <p><strong>Pekerjaan:</strong> Mahasiswa di ISB Atma Luhur &copy; 2025</p>
-      <p><strong>Nama Orang Tua:</strong> Bapak Ridwan dan Ibu Yurinalika</p>
-      <p><strong>Nama Kakak:</strong> Muhammad Aldhio Nanda Sepbriano</p>
-      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
+    <?= $_POST["txtNim"] ?? "2511500039"; ?>
+  </p>
+
+  <p><strong>Nama Lengkap:</strong>
+    <?= $_POST["namaLengkap"] ?? "Muhammad Alkautsar Dirgantara"; ?> &#128526;
+  </p>
+
+  <p><strong>Tempat Lahir:</strong>
+    <?= $_POST["tempatLahir"] ?? "Komplek Timah Sampur Atas"; ?>
+  </p>
+
+  <p><strong>Tanggal Lahir:</strong>
+    <?= $_POST["tanggalLahir"] ?? "8 April 2007"; ?>
+  </p>
+
+  <p><strong>Hobi:</strong>
+    <?= $_POST["hobi"] ?? "Nyemil, main game, dan mendengar musik &#127926;"; ?>
+  </p>
+
+  <p><strong>Pasangan:</strong>
+    <?= $_POST["pasangan"] ?? "Belum ada &hearts;"; ?>
+  </p>
+
+  <p><strong>Pekerjaan:</strong>
+    <?= $_POST["pekerjaan"] ?? "Mahasiswa di ISB Atma Luhur &copy; 2025"; ?>
+  </p>
+
+  <p><strong>Nama Orang Tua:</strong>
+    <?= $_POST["ortu"] ?? "Bapak Ridwan dan Ibu Yurinalika"; ?>
+  </p>
+
+  <p><strong>Nama Kakak:</strong>
+    <?= $_POST["kakak"] ?? "Muhammad Aldhio Nanda Sepbriano"; ?>
+  </p>
+
+  <p><strong>Nama Adik:</strong>
+    <?= $_POST["adik"] ?? ($sespesan ?? ""); ?>
+  </p>
     </section>
 
     <section id="contact">

@@ -13,4 +13,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Menyamakan isi section baru dengan section contact.</li>
   <li>Membuat 10 input yang isinya sama kayak section contact dan about ke section baru."</li>
   <li>Memberi styling pada section baru</li>
+  <li>Mendata  form pendaftaran dengan method POST</li>
 </ol>
