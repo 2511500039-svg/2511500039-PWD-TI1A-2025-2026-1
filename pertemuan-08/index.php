@@ -107,14 +107,7 @@ endif;
         <button type="reset">Batal</button>
       </form>
 
-      <?php if (!empty($sesnama)): ?>
-        <br><hr>
-        <h2>Yang menghubungi kami</h2>
-        <p><strong>Nama :</strong> <?php echo $sesnama ?></p>
-        <p><strong>Email :</strong> <?php echo $sesemail ?></p>
-        <p><strong>Pesan :</strong> <?php echo $sespesan ?></p>
-      <?php endif; ?>
-    </section>
+    </section>  
 
     <section id="about">
       <?php
@@ -165,7 +158,17 @@ endif;
 
         <button type="submit">Kirim</button>
         <button type="reset">Batal</button>
-      </form> 
+      </form>
+
+      <?php if (!empty($sesnama)): ?>
+        <br><hr>
+        <h2>Yang menghubungi kami</h2>
+        <p><strong>Nama :</strong> <?php echo $sesnama ?></p>
+        <p><strong>Email :</strong> <?php echo $sesemail ?></p>
+        <p><strong>Pesan :</strong> <?php echo $sespesan ?></p>
+      <?php endif; ?>
+
+
 
     </section>
   </main>
