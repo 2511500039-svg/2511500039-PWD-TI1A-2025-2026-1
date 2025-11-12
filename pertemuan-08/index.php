@@ -52,9 +52,34 @@ endif;
       <p>Ini contoh paragraf HTML.</p>
     </section>
 
-    <section id="mantap cees"> </section>
+    <section id="mantap cees"> 
+      <?php
+      $nim = 2511500039;
+      $NIM = "2511500039";
+      $nama = "Muhammad Alkautsar Dirgantara";
+      $Nama = "Muhammad Alkautsar Dirgantara";
+      $tempat = "Komplek Timah Sampur Atas";
+      ?>
       <h2>Pendaftaran Profil Pengunjung</h2>
       <h2>Kontak Kami</h2>
+       <p><strong>NIM:</strong>
+        <?php
+        echo $NIM;
+        ?>
+      </p>
+      <p><strong>Nama Lengkap:</strong>
+        <?php
+        echo $Nama;
+        ?> &#128526;
+      </p>
+      <p><strong>Tempat Lahir:</strong> <?php echo $tempat; ?></p>
+      <p><strong>Tanggal Lahir:</strong> 8 April 2007</p>
+      <p><strong>Hobi:</strong> Nyemil, main game, dan mendengar musik &#127926;</p>
+      <p><strong>Pasangan:</strong> Belum ada &hearts;</p>
+      <p><strong>Pekerjaan:</strong> Mahasiswa di ISB Atma Luhur &copy; 2025</p>
+      <p><strong>Nama Orang Tua:</strong> Bapak Ridwan dan Ibu Yurinalika</p>
+      <p><strong>Nama Kakak:</strong> Muhammad Aldhio Nanda Sepbriano</p>
+      <p><strong>Nama Adik:</strong> <?php echo $sespesan ?></p>
       <form action="proses.php" method="POST">
 
         <label for="txtNama"><span>Nama:</span>
