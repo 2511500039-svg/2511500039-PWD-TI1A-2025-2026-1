@@ -18,5 +18,6 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Menambahkan styling lagi</li>
   <li>Merapikan js</li>
   <li>Mengganti submit ke reset pada kode js agar bisa tereset</li>
+  <li>Mengganti GET menjadi POST.</li>
   <li>Menambah komentar pada kode</li>
 </ol>

@@ -154,7 +154,7 @@ endif;
 
     <section id="contact">
       <h2>Kontak Kami</h2>
-      <form action="proses.php" method="POST">
+      <form action="proses.php" method="POST"> 
 
         <label for="txtNama"><span>Nama:</span>
           <input type="text" id="txtNama" name="txtNama" placeholder="Masukkan nama" required autocomplete="name">
