@@ -10,14 +10,15 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Menyalin isi file bahan uts ke peretmuan-08 uts.</li>
   <li>Saya mengganti nama dll "tentang saya" dari bahan uts menjadi nama, nim dll tentang sayaa.</li>
   <li>Menambahkan section baru ( section vision register ).</li>
-  <li>Menyamakan isi section baru dengan section contact.</li>
-  <li>Membuat 10 input yang isinya sama kayak section contact dan about ke section baru."</li>
-  <li>Memberi styling pada section baru</li>
-  <li>Mendata  form pendaftaran dengan method POST</li>
+  <li>Menyamakan isi section baru dengan section conta
   <li>Mengubah bagian label tulisan text pada tanggal menjadi date agar tidak manual</li>
   <li>Menambahkan styling lagi</li>
+  <li>membuat proses.php dengan method post
   <li>Merapikan js</li>
   <li>Mengganti submit ke reset pada kode js agar bisa tereset</li>
   <li>Mengganti GET menjadi POST.</li>
-  <li>Menambah komentar pada kode</li>
+  <li>Menambah kom----</li>ct.</li>
+  <li>Membuat 10 input yang isinya sama kayak section contact dan about ke section baru."</li>
+  <li>Memberi styling pada section baru</li>
+  <li>Mendata form pendaftaran dengan method POST</li>
 </ol>
