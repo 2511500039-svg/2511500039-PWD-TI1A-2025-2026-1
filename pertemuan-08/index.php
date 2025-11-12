@@ -148,7 +148,7 @@ endif;
   </p>
 
   <p><strong>Nama Adik:</strong>
-    <?= $_POST["adik"] ?? ($sespesan ?? ""); ?>
+    <?= $_POST["adik"] ?? "Tidak ada"; ?>
   </p>
     </section>
 
