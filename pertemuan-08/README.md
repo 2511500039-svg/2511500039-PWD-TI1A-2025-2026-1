@@ -7,5 +7,6 @@ Kelompok: TI1A<br>
 <br>
 Proses saya mengerjakan UTS ini sebagai berikut:<br>
 <ol>
+  <li>Menyalin isi file bahan uts ke peretmuan-08 uts.</li>
   <li>Saya mengganti nama dll "tentang saya" dari bahan uts menjadi nama, nim dll tentang saya.</li>
 </ol>
