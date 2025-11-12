@@ -98,7 +98,7 @@ header li a:active {
 }
 
 #about strong,
-#mantapcees,
+#mantapcees label,
 #contact label>span {
   min-width: 180px;
   color: #003366;
@@ -109,7 +109,7 @@ header li a:active {
 }
 
 #contact input,
-#mantapcees,
+#mantapcees textarea,
 #contact textarea {
   flex: 1;
   border: 1px solid #ccc;
@@ -120,7 +120,7 @@ header li a:active {
   margin: 0;
   box-sizing: border-box;
 }
-#mantapcees,
+#mantapcees button,
 #contact button {
   margin-top: 10px;
   display: inline-block;
@@ -133,28 +133,28 @@ header li a:active {
   margin-right: 8px;
 }
 
-#mantapcees,
+#mantapcees button,
 #contact button[type="submit"] {
   background-color: #003366;
   color: #fff;
   font-weight: 600;
 }
 
-#mantapcees,
+#mantapcees button,
 #contact button[type="reset"] {
   background-color: #b4b4b4;
   color: #272727;
   font-weight: 500;
 }
 
-#mantapcees,
+#mantapcees button,
 #contact button[type="submit"]:hover {
   background-color: #0379ee;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-#mantapcees,
+#mantapcees button,
 #contact button[type="reset"]:hover {
   background-color: #cccccc;
   transform: translateY(-1px);
@@ -225,12 +225,14 @@ footer {
   }
 
   #about p,
+  #mantapcees label,
   #contact label {
     flex-direction: column;
     align-items: flex-start;
   }
 
   #about strong,
+  #mantapcees label,
   #contact label>span {
     text-align: left;
     padding-right: 0;
