@@ -14,5 +14,6 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Membuat 10 input yang isinya sama kayak section contact dan about ke section baru."</li>
   <li>Memberi styling pada section baru</li>
   <li>Mendata  form pendaftaran dengan method POST</li>
+  <li>Mengubah bagian label tulisan text pada tanggal menjadi date agar tidak manual</li>
   <li>Menambahkan styling lagi</li>
 </ol>
