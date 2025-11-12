@@ -60,6 +60,7 @@ header li a:active {
 }
 
 #home,
+#mantapcees,
 #about,
 #contact {
   background-color: #ffffff;
@@ -71,6 +72,7 @@ header li a:active {
 }
 
 #home h2,
+#mantapcees h2,
 #about h2,
 #contact h2 {
   color: #003366;
@@ -85,6 +87,7 @@ header li a:active {
 }
 
 #about p,
+#mantapcees label,
 #contact label {
   display: flex;
   justify-content: flex-start;
@@ -95,6 +98,7 @@ header li a:active {
 }
 
 #about strong,
+#mantapcees,
 #contact label>span {
   min-width: 180px;
   color: #003366;
@@ -105,6 +109,7 @@ header li a:active {
 }
 
 #contact input,
+#mantapcees,
 #contact textarea {
   flex: 1;
   border: 1px solid #ccc;
@@ -115,7 +120,7 @@ header li a:active {
   margin: 0;
   box-sizing: border-box;
 }
-
+#mantapcees,
 #contact button {
   margin-top: 10px;
   display: inline-block;
@@ -128,24 +133,28 @@ header li a:active {
   margin-right: 8px;
 }
 
+#mantapcees,
 #contact button[type="submit"] {
   background-color: #003366;
   color: #fff;
   font-weight: 600;
 }
 
+#mantapcees,
 #contact button[type="reset"] {
   background-color: #b4b4b4;
   color: #272727;
   font-weight: 500;
 }
 
+#mantapcees,
 #contact button[type="submit"]:hover {
   background-color: #0379ee;
   transform: translateY(-1px);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+#mantapcees,
 #contact button[type="reset"]:hover {
   background-color: #cccccc;
   transform: translateY(-1px);
