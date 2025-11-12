@@ -17,4 +17,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Mengubah bagian label tulisan text pada tanggal menjadi date agar tidak manual</li>
   <li>Menambahkan styling lagi</li>
   <li>Merapikan js</li>
+  <li>Mengganti submit ke reset pada kode js agar bisa tereset</li>
 </ol>
