@@ -16,4 +16,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Mendata  form pendaftaran dengan method POST</li>
   <li>Mengubah bagian label tulisan text pada tanggal menjadi date agar tidak manual</li>
   <li>Menambahkan styling lagi</li>
+  <li>Merapikan js</li>
 </ol>
