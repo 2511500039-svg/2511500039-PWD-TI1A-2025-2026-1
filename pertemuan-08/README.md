@@ -10,4 +10,5 @@ Proses saya mengerjakan UTS ini sebagai berikut:<br>
   <li>Menyalin isi file bahan uts ke peretmuan-08 uts.</li>
   <li>Saya mengganti nama dll "tentang saya" dari bahan uts menjadi nama, nim dll tentang sayaa.</li>
   <li>Menambahkan section baru ( section vision register ).</li>
+  <li>Menyamakan isi section baru dengan section contact.</li>
 </ol>
