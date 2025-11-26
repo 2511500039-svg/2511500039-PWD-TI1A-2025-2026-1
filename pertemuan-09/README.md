@@ -15,4 +15,5 @@
   <li>mENGAHPUS BARIS 20-32 DENGAN SESSION ARRBIODATA</li>
   <li>Memperjelas tujuan lokasi index.php dan menambahkan contact.</li>
   <li>menambahkan exit dibawah header proses.php</li>
+  <li>menambahkan field config dan biodata baru</li>
 </ol>
