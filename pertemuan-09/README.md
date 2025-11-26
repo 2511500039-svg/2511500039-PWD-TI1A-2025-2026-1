@@ -23,4 +23,5 @@
   <li>Menambahkn kode fungsi lagi dan lagii/li>
   <li>kode fungsi lagi untuk Merender hasil/output biodata</li>
   <li>mengganti kode php foreach menjadi lebih singkat (wkwkwkw tulis panjang2 tau2 e acak disingkat)</li> 
+  <li>jadi erorr dan menambahkan requireoncedir fungsi php bla bla supaya ga eror wkwk</li>
 </ol>
