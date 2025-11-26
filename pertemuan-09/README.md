@@ -16,4 +16,5 @@
   <li>Memperjelas tujuan lokasi index.php dan menambahkan contact.</li>
   <li>menambahkan exit dibawah header proses.php</li>
   <li>menambahkan field config dan biodata baru</li>
+  <li>menambahkan kode php foreach di index.php</li>
 </ol>
