@@ -22,15 +22,7 @@ $arrbiodata = [
     "adik"      => $_POST["txtNmAdik"] ?? ""
 ];
 
-$_SESSION["txtNim"]       = $_POST["txtNim"] ?? "";
-$_SESSION["txtNmLengkap"] = $_POST["txtNmLengkap"] ?? "";
-$_SESSION["txtT4Lhr"]     = $_POST["txtT4Lhr"] ?? "";
-$_SESSION["txtTglLhr"]    = $_POST["txtTglLhr"] ?? "";
-$_SESSION["txtHobi"]      = $_POST["txtHobi"] ?? "";
-$_SESSION["txtPasangan"]  = $_POST["txtPasangan"] ?? "";
-$_SESSION["txtKerja"]     = $_POST["txtKerja"] ?? "";
-$_SESSION["txtNmOrtu"]    = $_POST["txtNmOrtu"] ?? "";
-$_SESSION["txtNmKakak"]   = $_POST["txtNmKakak"] ?? "";
-$_SESSION["txtNmAdik"]    = $_POST["txtNmAdik"] ?? "";
-header("Location: index.php");
+$_SESSION["biodata"] = $arrBiodata;
+header("Location: index.php#contact");
+exit;
 ?>
