@@ -121,7 +121,7 @@ $fieldconfig = [
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?= tampilkanBiodata(conf: $fieldConfig, arr: $Biodata) ?>
+      <?= tampilkanBiodata(conf: $fieldConfig, arr: $biodata) ?>
       </section>
 
     <section id="contact">
