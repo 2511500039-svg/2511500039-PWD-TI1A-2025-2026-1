@@ -12,4 +12,5 @@
   <li>echo session ke nilai label section contact</li>
   <li>echo session ke nilai label section contact selesai</li>
   <li>Menambahkan arrbiodata ke proses.php</li>
+  <li>mENGAHPUS BARIS 20-32 DENGAN SESSION ARRBIODATA</li>
 </ol>
