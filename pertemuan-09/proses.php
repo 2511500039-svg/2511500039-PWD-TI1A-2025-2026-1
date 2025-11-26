@@ -19,12 +19,8 @@ $arrbiodata = [
     "pekerjaan" => $_POST["txtKerja"] ?? "",
     "ortu"      => $_POST["txtNmOrtu"] ?? "",
     "kakak"     => $_POST["txtNmKakak"] ?? "",
-    "adik"      => $_POST["txtNmAdik"] ?? "",
+    "adik"      => $_POST["txtNmAdik"] ?? ""
 ];
-
-foreach ($arrbiodata as $k => $v) {
-    echo "<p><strong>$k</strong>: $v</p>";
-}
 
 $_SESSION["txtNim"]       = $_POST["txtNim"] ?? "";
 $_SESSION["txtNmLengkap"] = $_POST["txtNmLengkap"] ?? "";
@@ -36,8 +32,5 @@ $_SESSION["txtKerja"]     = $_POST["txtKerja"] ?? "";
 $_SESSION["txtNmOrtu"]    = $_POST["txtNmOrtu"] ?? "";
 $_SESSION["txtNmKakak"]   = $_POST["txtNmKakak"] ?? "";
 $_SESSION["txtNmAdik"]    = $_POST["txtNmAdik"] ?? "";
-$_SESSION["biodata"]      = $arrbiodata;
-
-header("Location: index.php#contact");
-exit;
+header("Location: index.php");
 ?>
