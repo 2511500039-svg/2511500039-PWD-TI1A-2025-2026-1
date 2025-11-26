@@ -19,4 +19,5 @@
   <li>menambahkan kode php foreach di index.php</li>
   <li>menghapus baris 130-139 untuk menampilkan isi array associative $fieldconfig</li>
   <li>Menambahkan file baru dengan nama fungsi.php</li>
+  <li>Menambahkan kode fungsi lagi untuk menghasilkan tanggal dalam format 2 digit tanggal, 3 digit bulan dan 4 digit tahun</li>
 </ol>
