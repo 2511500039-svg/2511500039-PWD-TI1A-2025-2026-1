@@ -17,4 +17,5 @@
   <li>menambahkan exit dibawah header proses.php</li>
   <li>menambahkan field config dan biodata baru</li>
   <li>menambahkan kode php foreach di index.php</li>
+  <li>menghapus baris 130-139 untuk menampilkan isi array associative $fieldconfig</li>
 </ol>
