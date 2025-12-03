@@ -15,5 +15,6 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>membuat database di phpmyadmin dengan nama db_pwd2025</li> 
     <li>membuat tabel tamu di dalam database</li>
     <li>membuat file baru bernama read.php dan memasukkan kode</li>>
-    <li>menambahkan 3 tabel di file database phpmyadmin</li>
+    <li>menambahkan tabel di file database phpmyadmin</li>\
+    <li>menambahkan 3 record tabel yang sama</li>
 </ol>
