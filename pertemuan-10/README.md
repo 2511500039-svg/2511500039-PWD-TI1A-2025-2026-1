@@ -13,4 +13,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>MENAMBAH FILE BARU DENGAN NAMA KONEKSI.PHP DAN MEMASUKKAN KODE PHP</li>
     <li>memasang phpmyadmin</li>
     <li>membuat database di phpmyadmin dengan nama db_pwd2025</li> 
+    <li>membuat tabel tamu di dalam database</li>
 </ol>
