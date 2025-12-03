@@ -1,1 +1,15 @@
 # Pertemuan 10
+
+# pertemuan-09
+
+Hari ini, Rabu 03.DES.2025, saya akan melakukan uts:<br>
+NIM: 2511500039<br>
+Nama: Muhammad Alkautsar Dirgantara<br>
+Kelompok: TI1A<br>
+<br>
+Proses saya mengerjakan UTS ini sebagai berikut:<br>
+
+<ol>
+    <li>MENAMBAH FILE BARU DENGAN NAMA KONEKSI.PHP DAN MEMASUKKAN KODE PHP</li>
+    
+</ol>
