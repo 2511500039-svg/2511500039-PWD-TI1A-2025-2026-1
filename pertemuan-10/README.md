@@ -2,14 +2,13 @@
 
 # pertemuan-09
 
-Hari ini, Rabu 03.DES.2025, saya akan melakukan uts:<br>
+Hari ini, Rabu 03.DES.2025, saya akan melakukan latihan:<br>
 NIM: 2511500039<br>
 Nama: Muhammad Alkautsar Dirgantara<br>
 Kelompok: TI1A<br>
 <br>
-Proses saya mengerjakan UTS ini sebagai berikut:<br>
+Proses saya mengerjakan latihan ini sebagai berikut:<br>
 
 <ol>
-    <li>MENAMBAH FILE BARU DENGAN NAMA KONEKSI.PHP DAN MEMASUKKAN KODE PHP</li>
-    
+    <li>MENAMBAH FILE BARU DENGAN NAMA KONEKSI.PHP DAN MEMASUKKAN KODE PHP</li> 
 </ol>

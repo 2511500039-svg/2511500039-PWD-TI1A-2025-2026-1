@@ -1,11 +1,11 @@
 # pertemuan-09
 
-Hari ini, Rabu 26.NOV.2025, saya akan melakukan uts:<br>
+Hari ini, Rabu 26.NOV.2025, saya akan melakukan pembelajaran:<br>
 NIM: 2511500039<br>
 Nama: Muhammad Alkautsar Dirgantara<br>
 Kelompok: TI1A<br>
 <br>
-Proses saya mengerjakan UTS ini sebagai berikut:<br>
+Proses pembelajaran ini sebagai berikut:<br>
 
 <ol>
   <li>Hasil UTS untuk bahan pertemuan-09</li>
