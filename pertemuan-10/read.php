@@ -1,7 +1,7 @@
 <?php
 require 'koneksi.php';
 
-$sql =  "SELECT * FROM `tbl-tamu` ORDER BY cid DESC";
+$sql =  "SELECT * FROM `tbl_tamu` ORDER BY cid DESC";
 $q  = mysqli_query($conn, $sql);
 if (!$q) die("Query Error: " . mysqli_error($conn));
 ?>
