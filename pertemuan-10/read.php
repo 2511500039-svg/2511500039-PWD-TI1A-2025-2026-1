@@ -1,7 +1,7 @@
 <?php
 require 'koneksi.php';
 
-$sql =  "SELECT * FROM tbl-tamu ORDER BY cid DESC";
+$sql =  "SELECT * FROM `tbl-tamu` ORDER BY cid DESC"; // ← perbaikan
 $q  = mysqli_query($conn, $sql);
 ?>
 <table border="1" cellpadding="8" cellspacing="0">
@@ -10,7 +10,7 @@ $q  = mysqli_query($conn, $sql);
         <th>Nama</th>
         <th>Email</th>
         <th>Pesan</th>
-</tr>
+    </tr>
 
 <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
@@ -19,5 +19,5 @@ $q  = mysqli_query($conn, $sql);
         <td><?= htmlspecialchars($row['cemail']); ?></td>
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
     </tr> 
-   <?php endwhile; ?>
+<?php endwhile; ?>
 </table>
