@@ -17,4 +17,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>membuat file baru bernama read.php dan memasukkan kode</li>>
     <li>menambahkan tabel di file database phpmyadmin</li>\
     <li>menambahkan 3 record tabel yang sama</li>
+    <li>memodif kodingan read.inc.php<li>
 </ol>
