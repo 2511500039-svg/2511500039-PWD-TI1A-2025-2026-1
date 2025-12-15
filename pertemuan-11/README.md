@@ -15,4 +15,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>memperbaiki isi kesalahan</li>
     <li>mengisi form dan melihat hasil</li>
     <li>menambah kotak urut disamping kiri id pada tabel</li>
+    <li>merubah isi read.php dan menambah tabel no pada kodingan</li>
 </ol>
