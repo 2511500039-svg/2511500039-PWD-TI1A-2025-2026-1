@@ -14,4 +14,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>mengedit isi file proses.php</li>
     <li>memperbaiki isi kesalahan</li>
     <li>mengisi form dan melihat hasil</li>
+    <li>menambah kotak urut disamping kiri id pada tabel</li>
 </ol>
