@@ -12,4 +12,6 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>menampillam flash message</li>
     <li>menampilkan nilai lama dari form untuk antisipasi jika error</li>
     <li>mengedit isi file proses.php</li>
+    <li>memperbaiki isi kesalahan</li>
+    <li>mengisi form dan melihat hasil</li>
 </ol>
