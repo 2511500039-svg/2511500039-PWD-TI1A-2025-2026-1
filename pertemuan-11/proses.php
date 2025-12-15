@@ -54,7 +54,7 @@ if (!empty($errors)) {
 }
 
 /* simpan ke database */
-$sql = "INSERT INTO tbl_tamu (nama, email, pesan) VALUES (?, ?, ?)";
+$sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
 if (!$stmt) {
