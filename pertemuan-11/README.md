@@ -16,4 +16,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>mengisi form dan melihat hasil</li>
     <li>menambah kotak urut disamping kiri id pada tabel</li>
     <li>merubah isi read.php dan menambah tabel no pada kodingan</li>
+    <li>menambahkan validasi panjang minimal karakter</li>
 </ol>
