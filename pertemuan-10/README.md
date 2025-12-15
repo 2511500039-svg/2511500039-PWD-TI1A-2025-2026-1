@@ -19,4 +19,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>menambahkan 3 record tabel yang sama</li>
     <li>memodif kodingan read.inc.php</li>
     <li>merubah baris 146 di file index.php pada petemuan-10</li>
+    <li>hapus baris 133-141 pada file index.php sesuai intruksi pak yohanes</li>
 </ol>
