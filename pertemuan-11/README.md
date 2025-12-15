@@ -17,4 +17,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>menambah kotak urut disamping kiri id pada tabel</li>
     <li>merubah isi read.php dan menambah tabel no pada kodingan</li>
     <li>menambahkan validasi panjang minimal karakter</li>
+    <li>menambahkan input dasar captcha sederhana untuk logika dasar</li>
 </ol>
