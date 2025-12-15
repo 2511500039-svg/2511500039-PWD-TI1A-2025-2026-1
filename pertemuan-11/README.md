@@ -10,4 +10,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
 <ol>
     <li>update fungsi file php</li>
     <li>menampillam flash message</li>
+    <li>menampilkan nilai lama dari form untuk antisipasi jika error</li>
 </ol>
