@@ -3,7 +3,9 @@ require 'koneksi.php';
 
 $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
 $q = mysqli_query($conn, $sql);
-if (!$q) die("Query Error: " . mysqli_error($conn));
+if (!$q) {
+    die("Query Error: " . mysqli_error($conn));
+}
 ?>
 
 <table border="1" cellpadding="8" cellspacing="0">

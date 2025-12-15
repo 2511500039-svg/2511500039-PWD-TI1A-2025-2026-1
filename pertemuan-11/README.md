@@ -18,4 +18,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>merubah isi read.php dan menambah tabel no pada kodingan</li>
     <li>menambahkan validasi panjang minimal karakter</li>
     <li>menambahkan input dasar captcha sederhana untuk logika dasar</li>
+    <li>mengubah isi file read.php dengan menambahkan field</li>
 </ol>
