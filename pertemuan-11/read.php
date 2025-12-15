@@ -15,6 +15,7 @@ if (!$q) {
         <th>Nama</th>
         <th>Email</th>
         <th>Pesan</th>
+        <th>Tanggal</th>
     </tr>
 
 <?php $no = 1; ?>
@@ -25,6 +26,7 @@ if (!$q) {
         <td><?= htmlspecialchars($row['cnama']); ?></td>
         <td><?= htmlspecialchars($row['cemail']); ?></td>
         <td><?= nl2br(htmlspecialchars($row['cpesan'])); ?></td>
+        <td><?= date('d-m-Y H:i', strtotime($row['dcreated_at'])); ?></td>
     </tr>
 <?php endwhile; ?>
 </table>
