@@ -11,4 +11,6 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Tambah tombol Edit di read.php</li>
     <li>Tambahkan penampil flash sukses maupun flash error menggunakan session pada read.php</li>
     <li>Buat file baru dengan nama edit.php di folder pertemuan-12 untuk menampilkan form dengan data lama yang dibaca berdasarkan cid (prefill form).</li>
+    <li>Buat file baru dengan nama proses_update.php di dalam folder pertemuan-12 untuk menyimpan perubahan
+    menggunakan query UPDATE dan prepared statement.</li>
 </ol>
