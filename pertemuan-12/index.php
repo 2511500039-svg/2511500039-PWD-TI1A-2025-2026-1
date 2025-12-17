@@ -147,6 +147,9 @@ $_SESSION['captcha_jawaban'] = 5;
 
       <form action="proses.php" method="POST">
 
+        <!-- CID (disengaja untuk pembelajaran, best practice: hidden) -->
+        <input type="hidden" name="cid" value="7">
+
         <label>
           <span>Nama:</span>
           <input type="text" name="txtNama" required
