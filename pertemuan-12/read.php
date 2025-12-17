@@ -11,6 +11,7 @@ if (!$q) {
 <table border="1" cellpadding="8" cellspacing="0">
     <tr>
         <th>No</th>
+        <th>Aksi</th>
         <th>ID</th>
         <th>Nama</th>
         <th>Email</th>
@@ -18,10 +19,11 @@ if (!$q) {
         <th>Created At</th>
     </tr>
 
-<?php $no = 1; ?>
+<?php $i = 1; ?>
 <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
-        <td><?= $no++; ?></td>
+        <td><?= $i++; ?></td>
+        <td><a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a></td>
         <td><?= $row['cid']; ?></td>
         <td><?= htmlspecialchars($row['cnama']); ?></td>
         <td><?= htmlspecialchars($row['cemail']); ?></td>
