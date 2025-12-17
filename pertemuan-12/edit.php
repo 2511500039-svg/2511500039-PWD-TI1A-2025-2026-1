@@ -103,7 +103,7 @@ if (!empty($old)) {
         </label>
 
         <label>
-            <span>Captcha 2 × 3 = ?</span>
+            <span>Captcha 2 + 3 = ?</span>
             <input type="number" name="txtCaptcha" required>
         </label>
 
