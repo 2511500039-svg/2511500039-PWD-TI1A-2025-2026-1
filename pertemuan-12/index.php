@@ -167,9 +167,8 @@ $_SESSION['captcha_jawaban'] = 5;
           <textarea name="txtPesan" rows="4" required><?= htmlspecialchars($old['pesan'] ?? '') ?></textarea>
         </label>
 
-        <!-- CAPTCHA -->
         <label>
-          <span>Captcha  2 + 3 = ? :</span>
+          <span>Captcha  2 × 3 = ? :</span>
           <input type="text" name="captcha" required placeholder="Jawaban captcha">
         </label>
 
