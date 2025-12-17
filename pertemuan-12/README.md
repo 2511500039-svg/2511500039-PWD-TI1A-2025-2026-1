@@ -14,4 +14,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Buat file baru dengan nama proses_update.php di dalam folder pertemuan-12 untuk menyimpan perubahan
     menggunakan query UPDATE dan prepared statement.</li>
     <li>Membersihkan nilai dari form.</li>
+    <li>simpan nilai lama dan pesan eror, lalu redirect</li>
 </ol>
