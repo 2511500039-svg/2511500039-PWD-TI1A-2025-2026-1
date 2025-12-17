@@ -9,4 +9,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
 
 <ol>
     <li>Tambah tombol Edit di read.php</li>
+    <li>Tambahkan penampil flash sukses maupun flash error menggunakan session pada read.php</li>
 </ol>
