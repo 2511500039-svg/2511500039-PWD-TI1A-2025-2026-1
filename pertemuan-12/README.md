@@ -17,4 +17,6 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>simpan nilai lama dan pesan eror, lalu redirect</li>
     <li>mengambil data lama dari db menggunakan prepared statement.</li>
     <li>redirect balik ke read.php dan tampilkan info sukses.</li>
+    <li>melakukan uji coba hasil dari kodingan ini</li>
+    <li>mengakses url read.php</li>
 </ol>
