@@ -21,7 +21,7 @@ $cid = filter_input(
 
 if (!$cid) {
     $_SESSION['flash_error'] = 'CID tidak valid.';
-    redirect_ke('edit.php?cid=' . (int)$cid);
+    redirect_ke('read.php');
 }
 
 $nama    = bersihkan($_POST['txtNamaEd'] ?? '');
@@ -33,6 +33,8 @@ $errors = [];
 
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
+} elseif (mb_strlen($nama) < 3) {
+    $errors[] = 'Nama minimal 3 karakter.';
 }
 
 if ($email === '') {
@@ -43,22 +45,14 @@ if ($email === '') {
 
 if ($pesan === '') {
     $errors[] = 'Pesan wajib diisi.';
+} elseif (mb_strlen($pesan) < 10) {
+    $errors[] = 'Pesan minimal 10 karakter.';
 }
 
 if ($captcha === '') {
     $errors[] = 'Pertanyaan wajib diisi.';
-}
-
-if (mb_strlen($nama) < 3) {
-    $errors[] = 'Nama minimal 3 karakter.';
-}
-
-if (mb_strlen($pesan) < 10) {
-    $errors[] = 'Pesan minimal 10 karakter.';
-}
-
-if ($captcha!=="6") {
-    $errors[] = 'Jawaban'. $captcha.' captcha salah.';
+} elseif ($captcha !== "6") {
+    $errors[] = 'Jawaban captcha salah.';
 }
 
 if (!empty($errors)) {
@@ -76,9 +70,11 @@ $stmt = mysqli_prepare(
     $conn,
     "UPDATE tbl_tamu
      SET cnama = ?, cemail = ?, cpesan = ?
-     WHERE cid = ?");
+     WHERE cid = ?"
+);
+
 if (!$stmt) {
-    $_SESSION['flash_error'] = 'terjadi kesalahan sistem (prepare gagal).';
+    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
     redirect_ke('edit.php?cid=' . (int)$cid);
 }
 
@@ -89,15 +85,8 @@ if (mysqli_stmt_execute($stmt)) {
     $_SESSION['flash_sukses'] = 'Terima kasih, data anda telah berhasil diperbarui.';
     redirect_ke('read.php');
 } else {
-    $_SESSION['old'] = [
-        'nama'  => $nama,
-        'email' => $email,
-        'pesan' => $pesan
-    ];
-    $_SESSION['flash_error'] = 'Data gagal diperbaruhui. Silahkan coba lagi';
+    $_SESSION['flash_error'] = 'Data gagal diperbarui. Silakan coba lagi.';
     redirect_ke('edit.php?cid=' . (int)$cid);
-}   
+}
 
 mysqli_stmt_close($stmt);
-
-redirect_ke('edit.php?cid=' . (int)$cid);
