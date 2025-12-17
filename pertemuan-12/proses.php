@@ -12,12 +12,31 @@ function redirect_ke($url)
 /* fungsi bersihkan input */
 function bersihkan($data)
 {
+    if (!is_string($data)) {
+        return '';
+    }
     return htmlspecialchars(trim($data));
 }
 
 /* cek method */
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $_SESSION['flash_error'] = 'Akses tidak valid.';
+    redirect_ke('index.php#contact');
+}
+
+/* ======================
+   VALIDASI CAPTCHA
+   ====================== */
+$captcha_input   = bersihkan($_POST['captcha'] ?? '');
+$captcha_jawaban = $_SESSION['captcha_jawaban'] ?? '';
+
+if ($captcha_input === '' || $captcha_input != $captcha_jawaban) {
+    $_SESSION['old'] = [
+        'nama'  => bersihkan($_POST['txtNama'] ?? ''),
+        'email' => bersihkan($_POST['txtEmail'] ?? ''),
+        'pesan' => bersihkan($_POST['txtPesan'] ?? '')
+    ];
+    $_SESSION['flash_error'] = 'Captcha salah! Jawaban 2 + 3 tidak benar.';
     redirect_ke('index.php#contact');
 }
 
