@@ -15,6 +15,14 @@ $flash_error  = $_SESSION['flash_error'] ?? '';
 unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 ?>
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Buku Tamu</title>
+</head>
+<body>
+
 <?php if (!empty($flash_sukses)): ?>
     <div style="padding:10px; margin-bottom:10px; background:#d4edda; color:#155724; border-radius:6px;">
         <?= $flash_sukses; ?>
@@ -42,7 +50,9 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 <?php while ($row = mysqli_fetch_assoc($q)): ?>
     <tr>
         <td><?= $i++; ?></td>
-        <td><a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a></td>
+        <td>
+            <a href="edit.php?cid=<?= (int)$row['cid']; ?>">Edit</a>
+        </td>
         <td><?= $row['cid']; ?></td>
         <td><?= htmlspecialchars($row['cnama']); ?></td>
         <td><?= htmlspecialchars($row['cemail']); ?></td>
@@ -51,3 +61,6 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
     </tr>
 <?php endwhile; ?>
 </table>
+
+</body>
+</html>
