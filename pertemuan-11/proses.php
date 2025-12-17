@@ -12,6 +12,9 @@ function redirect_ke($url)
 /* fungsi bersihkan input */
 function bersihkan($data)
 {
+    if (!is_string($data)) {
+        return '';
+    }
     return htmlspecialchars(trim($data));
 }
 
@@ -21,44 +24,48 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect_ke('index.php#contact');
 }
 
+/* ======================
+   VALIDASI CAPTCHA
+   ====================== */
+$captcha_input   = bersihkan($_POST['captcha'] ?? '');
+$captcha_jawaban = $_SESSION['captcha_jawaban'] ?? '';
+
+if ($captcha_input === '' || $captcha_input != $captcha_jawaban) {
+    $_SESSION['old'] = [
+        'nama'  => bersihkan($_POST['txtNama'] ?? ''),
+        'email' => bersihkan($_POST['txtEmail'] ?? ''),
+        'pesan' => bersihkan($_POST['txtPesan'] ?? '')
+    ];
+    $_SESSION['flash_error'] = 'Captcha salah! Jawaban 2 + 3 tidak benar.';
+    redirect_ke('index.php#contact');
+}
+
 /* ambil data dari form */
-$nama    = bersihkan($_POST['txtNama'] ?? '');
-$email   = bersihkan($_POST['txtEmail'] ?? '');
-$pesan   = bersihkan($_POST['txtPesan'] ?? '');
-$captcha = bersihkan($_POST['captcha'] ?? '');
+$nama  = bersihkan($_POST['txtNama'] ?? '');
+$email = bersihkan($_POST['txtEmail'] ?? '');
+$pesan = bersihkan($_POST['txtPesan'] ?? '');
 
 /* validasi */
 $errors = [];
 
-/* validasi nama */
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
 } elseif (strlen($nama) < 3) {
     $errors[] = 'Nama minimal 3 karakter.';
 }
 
-/* validasi email */
 if ($email === '') {
     $errors[] = 'Email wajib diisi.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'Format email tidak valid.';
 }
 
-/* validasi pesan */
 if ($pesan === '') {
     $errors[] = 'Pesan wajib diisi.';
 } elseif (strlen($pesan) < 10) {
     $errors[] = 'Pesan minimal 10 karakter.';
 }
 
-/* ===== VALIDASI CAPTCHA (DISAMAKAN) ===== */
-if ($captcha === '') {
-    $errors[] = 'Captcha wajib diisi.';
-} elseif ($captcha != ($_SESSION['captcha_jawaban'] ?? '')) {
-    $errors[] = 'Captcha salah.';
-}
-
-/* jika ada error */
 if (!empty($errors)) {
     $_SESSION['old'] = [
         'nama'  => $nama,
@@ -74,7 +81,7 @@ $sql = "INSERT INTO tbl_tamu (cnama, cemail, cpesan) VALUES (?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
 if (!$stmt) {
-    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem.';
+    $_SESSION['flash_error'] = 'Terjadi kesalahan sistem (prepare gagal).';
     redirect_ke('index.php#contact');
 }
 
