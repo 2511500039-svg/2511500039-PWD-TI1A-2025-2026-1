@@ -16,4 +16,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Membersihkan nilai dari form.</li>
     <li>simpan nilai lama dan pesan eror, lalu redirect</li>
     <li>mengambil data lama dari db menggunakan prepared statement.</li>
+    <li>redirect balik ke read.php dan tampilkan info sukses.</li>
 </ol>
