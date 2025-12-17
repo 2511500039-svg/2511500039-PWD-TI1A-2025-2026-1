@@ -10,4 +10,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
 <ol>
     <li>Tambah tombol Edit di read.php</li>
     <li>Tambahkan penampil flash sukses maupun flash error menggunakan session pada read.php</li>
+    <li>Buat file baru dengan nama edit.php di folder pertemuan-12 untuk menampilkan form dengan data lama yang dibaca berdasarkan cid (prefill form).</li>
 </ol>
