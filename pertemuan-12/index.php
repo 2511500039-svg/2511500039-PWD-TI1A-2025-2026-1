@@ -169,7 +169,7 @@ $_SESSION['captcha_jawaban'] = 5;
 
         <!-- CAPTCHA -->
         <label>
-          <span>Captcha ( 2 + 3 = ? ):</span>
+          <span>Captcha  2 + 3 = ? :</span>
           <input type="text" name="captcha" required placeholder="Jawaban captcha">
         </label>
 
