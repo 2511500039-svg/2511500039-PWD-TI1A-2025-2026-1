@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/fungsi.php';
 
-/* captcha statis sederhana */
 $_SESSION['captcha_jawaban'] = 5;
 ?>
 
@@ -147,7 +146,6 @@ $_SESSION['captcha_jawaban'] = 5;
 
       <form action="proses.php" method="POST">
 
-        <!-- CID (disengaja untuk pembelajaran, best practice: hidden) -->
         <input type="text" name="cid" value="7">
 
         <label>

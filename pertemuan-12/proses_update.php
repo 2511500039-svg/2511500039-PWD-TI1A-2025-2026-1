@@ -51,7 +51,7 @@ if ($pesan === '') {
 
 if ($captcha === '') {
     $errors[] = 'Pertanyaan wajib diisi.';
-} elseif ($captcha !== "6") {
+} elseif ($captcha !== "5") {
     $errors[] = 'Jawaban captcha salah.';
 }
 
