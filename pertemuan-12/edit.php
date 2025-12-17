@@ -83,7 +83,7 @@ if (!empty($old)) {
 
     <form action="proses_update.php" method="POST">
 
-        <input type="hidden" name="cid" value="<?= (int)$cid; ?>">
+         <input type="text" name="cid" value="7">
 
         <label>
             <span>Nama:</span>
