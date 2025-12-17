@@ -15,4 +15,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     menggunakan query UPDATE dan prepared statement.</li>
     <li>Membersihkan nilai dari form.</li>
     <li>simpan nilai lama dan pesan eror, lalu redirect</li>
+    <li>mengambil data lama dari db menggunakan prepared statement.</li>
 </ol>
