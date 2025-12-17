@@ -1,20 +1,18 @@
 <?php
-    session_start();
-    require 'koneksi.php';
-    require 'fungsi.php';
+session_start();
+require 'koneksi.php';
+require 'fungsi.php';
 
 $sql = "SELECT * FROM tbl_tamu ORDER BY cid DESC";
 $q = mysqli_query($conn, $sql);
 if (!$q) {
     die("Query Error: " . mysqli_error($conn));
 }
-?>
 
-<?php
-  $flash_sukses = $_SESSION['flash_sukses'] ?? '';
-  $flash_error   = $_SESSION['flash_error'] ?? '';
+$flash_sukses = $_SESSION['flash_sukses'] ?? '';
+$flash_error  = $_SESSION['flash_error'] ?? '';
 
-  unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
+unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
 ?>
 
 <?php if (!empty($flash_sukses)): ?>
@@ -25,7 +23,7 @@ if (!$q) {
 
 <?php if (!empty($flash_error)): ?>
     <div style="padding:10px; margin-bottom:10px; background:#f8d7da; color:#721c24; border-radius:6px;">
-        <?= $flash_sukses; ?>
+        <?= $flash_error; ?>
     </div>
 <?php endif; ?>
 
