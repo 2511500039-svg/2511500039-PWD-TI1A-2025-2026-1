@@ -15,4 +15,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>menghapus beberapa kodingan yang tidak diperlukan yang diambil dari prosesupdate.php di prosesdelete.php</li>
     <li>nambah parameter cid untuk link delete di read.php</li>
     <li>memperbaiki file proses delete php agar menggunakan parameter cid</li>
+    <li>mengkonfirmasi penghapus serta menghapus beberapa kodingan dan menyesuaikannya</li>
 </ol>
