@@ -13,4 +13,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>menambah link delete di read.php untuk ke file proses_delete.php</li>
     <li>nyalin kode di prosesupdate.php ke file baru prosesdelete.php</li>
     <li>menghapus beberapa kodingan yang tidak diperlukan yang diambil dari prosesupdate.php di prosesdelete.php</li>
+    <li>nambah parameter cid untuk link delete di read.php</li>
 </ol>
