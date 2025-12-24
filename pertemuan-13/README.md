@@ -9,5 +9,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
 
 <ol>
     <li>Memindahkan file pertemuan-12 ke pertemuan-13</li>
-    <li>Download bahan ajar dari pak yohanes dan mengimport localhost di phpmyadmin</li>
+    <li>Download bahan ajar dari pak yohanes dan mengimport sql di phpmyadmin</li>
 </ol>
