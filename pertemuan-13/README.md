@@ -11,4 +11,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Memindahkan file pertemuan-12 ke pertemuan-13</li>
     <li>Download bahan ajar dari pak yohanes dan mengimport sql di phpmyadmin</li>
     <li>menambah link delete di read.php untuk ke file proses_delete.php</li>
+    <li>nyalin kode di prosesupdate.php ke file baru prosesdelete.php</li>
 </ol>
