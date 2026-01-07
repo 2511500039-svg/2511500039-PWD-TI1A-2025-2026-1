@@ -16,4 +16,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Menambah file baru dengan nama edit_biodata.php</li>
     <li>Memasukkan kodingan pada file edit biodata php dan membuat file baru lagi</li>
     <li>Merapikan kodingan yang berantakan</li>
+    <li>mengisi beberapa file dengan kodingan lagi dan lagi</li>
 </ol>
