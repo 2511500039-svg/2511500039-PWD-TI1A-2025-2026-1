@@ -3,7 +3,7 @@ session_start();
 require 'koneksi.php';
 require_once 'fungsi.php';
 
-// Ambil ID dari URL dan validasi
+/* Ambil ID dari URL dan validasi */
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
     'options' => ['min_range' => 1]
 ]);
@@ -13,7 +13,7 @@ if (!$id) {
     redirect_ke('read_biodata.php');
 }
 
-// Ambil data dari database
+/* Ambil data biodata berdasarkan ID */
 $sql = "SELECT id, nim, nama, email, pesan FROM tbl_biodata WHERE id = ? LIMIT 1";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);
@@ -26,10 +26,6 @@ if (!$data) {
     $_SESSION['flash_error'] = 'Data tidak ditemukan.';
     redirect_ke('read_biodata.php');
 }
-
-// Ambil flash message jika ada
-$flash_error = $_SESSION['flash_error'] ?? '';
-unset($_SESSION['flash_error']);
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +39,9 @@ unset($_SESSION['flash_error']);
 
 <h2>Edit Biodata Mahasiswa</h2>
 
-<?php if (!empty($flash_error)): ?>
+<?php if (!empty($_SESSION['flash_error'])): ?>
     <div style="padding:10px; margin-bottom:10px; background:#f8d7da; color:#721c24; border-radius:6px;">
-        <?= $flash_error ?>
+        <?= $_SESSION['flash_error']; unset($_SESSION['flash_error']); ?>
     </div>
 <?php endif; ?>
 
@@ -78,8 +74,8 @@ unset($_SESSION['flash_error']);
     </label>
     <br><br>
 
-    <button type="submit">Update</button>
-    <a href="read_biodata.php">Batal</a>
+    <button type="submit">Kirim</button>
+    <a href="read_biodata.php"><button type="button">Batal</button></a>
 
 </form>
 
