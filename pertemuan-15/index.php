@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/fungsi.php';
+require 'koneksi.php'; // tambahkan koneksi ke database
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +55,6 @@ require_once __DIR__ . '/fungsi.php';
       <?php endif; ?>
 
       <form action="proses_biodata.php" method="POST">
-
         <label for="txtNim"><span>NIM:</span>
           <input type="text" id="txtNim" name="txtNim" placeholder="Masukkan NIM" required
             value="<?= htmlspecialchars($old_biodata['nim'] ?? '') ?>">
@@ -81,29 +81,25 @@ require_once __DIR__ . '/fungsi.php';
 
     <!-- ================= TENTANG SAYA ================= -->
     <?php
-    $biodata_session = $_SESSION["biodata"] ?? [];
+    // Ambil data terakhir dari database
+    $sql = "SELECT nim, nama, email, pesan, tanggal
+            FROM tbl_biodata
+            ORDER BY id DESC
+            LIMIT 1";
+    $q = mysqli_query($conn, $sql);
+    $biodata_db = mysqli_fetch_assoc($q);
     ?>
+
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?php if (!empty($biodata_session)): ?>
-        <div class="biodata-display">
-          <label>NIM:</label>
-          <p><?= htmlspecialchars($biodata_session['nim'] ?? ''); ?></p>
-
-          <label>Nama:</label>
-          <p><?= htmlspecialchars($biodata_session['nama'] ?? ''); ?></p>
-
-          <label>Email:</label>
-          <p><?= htmlspecialchars($biodata_session['email'] ?? ''); ?></p>
-
-          <label>Pesan:</label>
-          <p><?= htmlspecialchars($biodata_session['pesan'] ?? ''); ?></p>
-
-          <label>Tanggal:</label>
-          <p><?= htmlspecialchars($biodata_session['tanggal'] ?? ''); ?></p>
-        </div>
+      <?php if ($biodata_db): ?>
+        <p><strong>NIM:</strong> <?= htmlspecialchars($biodata_db['nim']) ?></p>
+        <p><strong>Nama Lengkap:</strong> <?= htmlspecialchars($biodata_db['nama']) ?></p>
+        <p><strong>Email:</strong> <?= htmlspecialchars($biodata_db['email']) ?></p>
+        <p><strong>Pesan:</strong> <?= htmlspecialchars($biodata_db['pesan']) ?></p>
+        <p><strong>Tanggal:</strong> <?= $biodata_db['tanggal'] ?></p>
       <?php else: ?>
-        <p>Belum ada biodata yang disimpan.</p>
+        <p>Belum ada biodata tersimpan.</p>
       <?php endif; ?>
     </section>
 
