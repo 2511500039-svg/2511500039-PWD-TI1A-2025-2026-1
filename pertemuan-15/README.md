@@ -15,4 +15,5 @@ Proses saya mengerjakan latihan ini sebagai berikut:<br>
     <li>Menambah link edit dan hapus pada read biodata php</li>
     <li>Menambah file baru dengan nama edit_biodata.php</li>
     <li>Memasukkan kodingan pada file edit biodata php dan membuat file baru lagi</li>
+    <li>Merapikan kodingan yang berantakan</li>
 </ol>
