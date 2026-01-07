@@ -3,17 +3,33 @@ session_start();
 require 'koneksi.php';
 require_once 'fungsi.php';
 
-// Ambil semua data dari tbl_biodata
-$sql = "SELECT id, nim, nama, email, pesan, tanggal FROM tbl_biodata ORDER BY id DESC";
-$q = mysqli_query($conn, $sql);
+// Ambil ID dari URL dan validasi
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
+    'options' => ['min_range' => 1]
+]);
 
-if (!$q) {
-    die("Query error: " . mysqli_error($conn));
+if (!$id) {
+    $_SESSION['flash_error'] = 'ID tidak valid.';
+    redirect_ke('read_biodata.php');
 }
 
-$flash_sukses = $_SESSION['flash_sukses'] ?? '';
-$flash_error  = $_SESSION['flash_error'] ?? '';
-unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
+// Ambil data dari database
+$sql = "SELECT id, nim, nama, email, pesan FROM tbl_biodata WHERE id = ? LIMIT 1";
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "i", $id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$data = mysqli_fetch_assoc($result);
+mysqli_stmt_close($stmt);
+
+if (!$data) {
+    $_SESSION['flash_error'] = 'Data tidak ditemukan.';
+    redirect_ke('read_biodata.php');
+}
+
+// Ambil flash message jika ada
+$flash_error = $_SESSION['flash_error'] ?? '';
+unset($_SESSION['flash_error']);
 ?>
 
 <!DOCTYPE html>
@@ -24,53 +40,48 @@ unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Data Biodata Mahasiswa</h2>
 
-<?php if (!empty($flash_sukses)): ?>
-    <div style="padding:10px; margin-bottom:10px; background:#d4edda; color:#155724; border-radius:6px;">
-        <?= $flash_sukses; ?>
-    </div>
-<?php endif; ?>
+<h2>Edit Biodata Mahasiswa</h2>
 
 <?php if (!empty($flash_error)): ?>
     <div style="padding:10px; margin-bottom:10px; background:#f8d7da; color:#721c24; border-radius:6px;">
-        <?= $flash_error; ?>
+        <?= $flash_error ?>
     </div>
 <?php endif; ?>
 
-<table border="1" cellpadding="8" cellspacing="0">
-    <tr>
-        <th>No</th>
-        <th>Aksi</th>
-        <th>ID</th>
-        <th>NIM</th>
-        <th>Nama</th>
-        <th>Email</th>
-        <th>Pesan</th>
-        <th>Tanggal</th>
-    </tr>
+<form action="proses_update_biodata.php" method="POST">
 
-    <?php $no = 1; ?>
-    <?php while ($row = mysqli_fetch_assoc($q)): ?>
-        <tr>
-            <td><?= $no++ ?></td>
-            <td>
-                <a href="edit_form_biodata.php?id=<?= (int)$row['id']; ?>">Edit</a> |
-                <a href="delete_biodata.php?id=<?= (int)$row['id']; ?>"
-                   onclick="return confirm('Yakin hapus data ini?')">Delete</a>
-            </td>
-            <td><?= $row['id']; ?></td>
-            <td><?= htmlspecialchars($row['nim']); ?></td>
-            <td><?= htmlspecialchars($row['nama']); ?></td>
-            <td><?= htmlspecialchars($row['email']); ?></td>
-            <td><?= htmlspecialchars($row['pesan']); ?></td>
-            <td><?= $row['tanggal']; ?></td>
-        </tr>
-    <?php endwhile; ?>
-</table>
+    <!-- ID disembunyikan -->
+    <input type="hidden" name="id" value="<?= (int)$data['id']; ?>">
 
-<br>
-<a href="index.php#biodata">Kembali ke Form Biodata</a>
+    <label>
+        NIM:<br>
+        <input type="text" name="nim" value="<?= htmlspecialchars($data['nim']); ?>" readonly>
+    </label>
+    <br><br>
+
+    <label>
+        Nama:<br>
+        <input type="text" name="nama" value="<?= htmlspecialchars($data['nama']); ?>" required>
+    </label>
+    <br><br>
+
+    <label>
+        Email:<br>
+        <input type="email" name="email" value="<?= htmlspecialchars($data['email']); ?>" required>
+    </label>
+    <br><br>
+
+    <label>
+        Pesan:<br>
+        <textarea name="pesan" rows="4" required><?= htmlspecialchars($data['pesan']); ?></textarea>
+    </label>
+    <br><br>
+
+    <button type="submit">Update</button>
+    <a href="read_biodata.php">Batal</a>
+
+</form>
 
 </body>
 </html>
