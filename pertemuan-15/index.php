@@ -91,7 +91,6 @@ require 'koneksi.php'; // koneksi database
       <h2>Tentang Saya</h2>
 
       <?php if (mysqli_num_rows($q) > 0): ?>
-        <table border="1" cellpadding="8" cellspacing="0">
           <tr>
             <th>No</th>
             <th>Aksi</th>
