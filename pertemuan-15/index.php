@@ -60,8 +60,8 @@ require_once __DIR__ . '/fungsi.php';
             value="<?= htmlspecialchars($old_biodata['nim'] ?? '') ?>">
         </label>
 
-        <label for="txtNama"><span>Nama Lengkap:</span>
-          <input type="text" id="txtNama" name="txtNmLengkap" placeholder="Masukkan Nama Lengkap" required
+        <label for="txtNmLengkap"><span>Nama Lengkap:</span>
+          <input type="text" id="txtNmLengkap" name="txtNmLengkap" placeholder="Masukkan Nama Lengkap" required
             value="<?= htmlspecialchars($old_biodata['nama'] ?? '') ?>">
         </label>
 
@@ -80,19 +80,21 @@ require_once __DIR__ . '/fungsi.php';
     </section>
 
     <?php
+    // Ambil biodata dari session
     $biodata_session = $_SESSION["biodata"] ?? [];
-    $fieldConfig = [
-      "nim"   => ["label" => "NIM:", "suffix" => ""],
-      "nama"  => ["label" => "Nama Lengkap:", "suffix" => ""],
-      "email" => ["label" => "Email:", "suffix" => ""],
-      "pesan" => ["label" => "Pesan:", "suffix" => ""],
-      "tanggal" => ["label" => "Tanggal:", "suffix" => ""],
-    ];
     ?>
 
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?= tampilkanBiodata($fieldConfig, $biodata_session) ?>
+      <?php if (!empty($biodata_session)): ?>
+        <p>NIM: <?= htmlspecialchars($biodata_session['nim'] ?? '') ?></p>
+        <p>Nama: <?= htmlspecialchars($biodata_session['nama'] ?? '') ?></p>
+        <p>Email: <?= htmlspecialchars($biodata_session['email'] ?? '') ?></p>
+        <p>Pesan: <?= htmlspecialchars($biodata_session['pesan'] ?? '') ?></p>
+        <p>Tanggal: <?= htmlspecialchars($biodata_session['tanggal'] ?? '') ?></p>
+      <?php else: ?>
+        <p>Belum ada biodata yang disimpan.</p>
+      <?php endif; ?>
     </section>
 
     <!-- ================= CONTACT ================= -->
