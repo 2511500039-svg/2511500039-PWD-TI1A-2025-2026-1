@@ -107,7 +107,7 @@ if (!empty($old)) {
                 <textarea id="txtPesan" name="pesan" rows="4" required><?= htmlspecialchars($pesan); ?></textarea>
             </label>
 
-            <button type="submit">Update</button>
+            <button type="submit">Kirim</button>
             <button type="reset">Batal</button>
             <a href="read_biodata.php" class="reset">Kembali</a>
         </form>
