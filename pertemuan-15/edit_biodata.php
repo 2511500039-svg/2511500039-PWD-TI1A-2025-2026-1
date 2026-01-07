@@ -2,23 +2,19 @@
 session_start();
 require 'koneksi.php';
 
-/* 
-  Ambil id dari URL dan validasi
-*/
+/* Validasi ID dari URL */
 $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT, [
   'options' => ['min_range' => 1]
 ]);
 
 if (!$id) {
-  die('ID tidak valid');
+  die('ID tidak valid.');
 }
 
-/*
-  Ambil data biodata berdasarkan ID
-*/
-$sql = "SELECT id, nim, nama, email, pesan 
-        FROM tbl_biodata 
-        WHERE id = ? 
+/* Ambil data biodata */
+$sql = "SELECT id, nim, nama, email, pesan
+        FROM tbl_biodata
+        WHERE id = ?
         LIMIT 1";
 
 $stmt = mysqli_prepare($conn, $sql);
@@ -29,7 +25,7 @@ $data = mysqli_fetch_assoc($result);
 mysqli_stmt_close($stmt);
 
 if (!$data) {
-  die('Data tidak ditemukan');
+  die('Data tidak ditemukan.');
 }
 ?>
 
@@ -51,34 +47,30 @@ if (!$data) {
 
   <label>
     <span>NIM:</span>
-    <!-- NIM readonly sesuai instruksi soal -->
-    <input type="text" name="nim" 
-           value="<?= htmlspecialchars($data['nim']); ?>" 
+    <input type="text" name="nim"
+           value="<?= htmlspecialchars($data['nim']); ?>"
            readonly>
   </label>
 
   <label>
     <span>Nama:</span>
-    <input type="text" name="nama" 
-           value="<?= htmlspecialchars($data['nama']); ?>" 
+    <input type="text" name="nama"
+           value="<?= htmlspecialchars($data['nama']); ?>"
            required>
   </label>
 
   <label>
     <span>Email:</span>
-    <input type="email" name="email" 
-           value="<?= htmlspecialchars($data['email']); ?>" 
+    <input type="email" name="email"
+           value="<?= htmlspecialchars($data['email']); ?>"
            required>
   </label>
 
   <label>
     <span>Pesan:</span>
-    <textarea name="pesan" rows="4" required><?= 
-      htmlspecialchars($data['pesan']); 
-    ?></textarea>
+    <textarea name="pesan" rows="4" required><?= htmlspecialchars($data['pesan']); ?></textarea>
   </label>
 
-  <!-- Tombol mengikuti pola Kirim & Batal -->
   <button type="submit">Kirim</button>
   <button type="reset">Batal</button>
   <a href="read_biodata.php">Kembali</a>
