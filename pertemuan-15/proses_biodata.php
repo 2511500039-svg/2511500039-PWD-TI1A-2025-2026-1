@@ -1,66 +1,74 @@
 <?php
 session_start();
+require 'koneksi.php';
+require_once 'fungsi.php';
 
-// Ambil & bersihkan data dari form
-$nim   = trim($_POST['txtNim'] ?? '');
-$nama  = trim($_POST['txtNmLengkap'] ?? '');
-$email = trim($_POST['txtEmail'] ?? '');
-$pesan = trim($_POST['txtPesan'] ?? '');
+/* 
+  Pastikan metode POST
+*/
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    $_SESSION['flash_biodata'] = 'Akses tidak valid.';
+    redirect_ke('index.php#biodata');
+}
 
-// Array untuk menampung error
+/* Ambil dan bersihkan data */
+$nim   = bersihkan($_POST['txtNim'] ?? '');
+$nama  = bersihkan($_POST['txtNmLengkap'] ?? '');
+$email = bersihkan($_POST['txtEmail'] ?? '');
+$pesan = bersihkan($_POST['txtPesan'] ?? '');
+
+/* Validasi sederhana */
 $errors = [];
 
-// Validasi sederhana
 if ($nim === '') {
     $errors[] = 'NIM wajib diisi.';
 }
-
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
-} elseif (mb_strlen($nama) < 3) {
-    $errors[] = 'Nama minimal 3 karakter.';
 }
-
 if ($email === '') {
     $errors[] = 'Email wajib diisi.';
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $errors[] = 'Format email tidak valid.';
 }
-
 if ($pesan === '') {
     $errors[] = 'Pesan wajib diisi.';
-} elseif (mb_strlen($pesan) < 10) {
-    $errors[] = 'Pesan minimal 10 karakter.';
 }
 
-// Jika ada error, simpan old value & flash error
 if (!empty($errors)) {
     $_SESSION['old_biodata'] = [
-        'nim' => $nim,
-        'nama' => $nama,
+        'nim'   => $nim,
+        'nama'  => $nama,
         'email' => $email,
         'pesan' => $pesan
     ];
     $_SESSION['flash_biodata'] = implode('<br>', $errors);
-    header('Location: index.php#biodata');
-    exit;
+    redirect_ke('index.php#biodata');
 }
 
-// Simpan data ke session
-$_SESSION['biodata'] = [
-    'nim' => $nim,
-    'nama' => $nama,
-    'email' => $email,
-    'pesan' => $pesan,
-    'tanggal' => date("Y-m-d H:i:s")
-];
+/* Siapkan query INSERT ke tbl_biodata */
+$sql = "INSERT INTO tbl_biodata (nim, nama, email, pesan) VALUES (?, ?, ?, ?)";
+$stmt = mysqli_prepare($conn, $sql);
 
-// Hapus old_biodata
-unset($_SESSION['old_biodata']);
+if (!$stmt) {
+    $_SESSION['flash_biodata'] = 'Terjadi kesalahan sistem (prepare gagal).';
+    redirect_ke('index.php#biodata');
+}
 
-// Flash message sukses
-$_SESSION['flash_biodata'] = 'Biodata berhasil disimpan!';
+mysqli_stmt_bind_param($stmt, "ssss", $nim, $nama, $email, $pesan);
 
-// Redirect ke Tentang Saya
-header('Location: index.php#about');
-exit;
+if (mysqli_stmt_execute($stmt)) {
+    unset($_SESSION['old_biodata']);
+    $_SESSION['flash_biodata'] = 'Biodata berhasil tersimpan.';
+} else {
+    $_SESSION['old_biodata'] = [
+        'nim'   => $nim,
+        'nama'  => $nama,
+        'email' => $email,
+        'pesan' => $pesan
+    ];
+    $_SESSION['flash_biodata'] = 'Biodata gagal disimpan. Silakan coba lagi.';
+}
+
+mysqli_stmt_close($stmt);
+redirect_ke('index.php#biodata');
