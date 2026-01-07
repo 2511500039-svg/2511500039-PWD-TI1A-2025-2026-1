@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once __DIR__ . '/fungsi.php';
-require 'koneksi.php'; // koneksi database
 ?>
 
 <!DOCTYPE html>
@@ -55,6 +54,7 @@ require 'koneksi.php'; // koneksi database
       <?php endif; ?>
 
       <form action="proses_biodata.php" method="POST">
+
         <label for="txtNim"><span>NIM:</span>
           <input type="text" id="txtNim" name="txtNim" placeholder="Masukkan NIM" required
             value="<?= htmlspecialchars($old_biodata['nim'] ?? '') ?>">
@@ -81,45 +81,29 @@ require 'koneksi.php'; // koneksi database
 
     <!-- ================= TENTANG SAYA ================= -->
     <?php
-    $sql = "SELECT id, nim, nama, email, pesan, tanggal
-            FROM tbl_biodata
-            ORDER BY id DESC";
-    $q = mysqli_query($conn, $sql);
+    $biodata_session = $_SESSION["biodata"] ?? [];
     ?>
-
     <section id="about">
       <h2>Tentang Saya</h2>
+      <?php if (!empty($biodata_session)): ?>
+        <div class="biodata-display">
+          <label>NIM:</label>
+          <p><?= htmlspecialchars($biodata_session['nim'] ?? ''); ?></p>
 
-      <?php if (mysqli_num_rows($q) > 0): ?>
+          <label>Nama:</label>
+          <p><?= htmlspecialchars($biodata_session['nama'] ?? ''); ?></p>
 
-          <tr>
-            <th>No</th>
-            <th>Aksi</th>
-            <th>NIM</th>
-            <th>Nama Lengkap</th>
-            <th>Email</th>
-            <th>Pesan</th>
-            <th>Tanggal</th>
-          </tr>
+          <label>Email:</label>
+          <p><?= htmlspecialchars($biodata_session['email'] ?? ''); ?></p>
 
-          <?php $no = 1; ?>
-          <?php while ($row = mysqli_fetch_assoc($q)): ?>
-            <tr>
-              <td><?= $no++ ?></td>
-              <td>
-                <a href="edit_biodata.php?id=<?= (int)$row['id'] ?>">Edit</a> |
-                <a href="delete_biodata.php?id=<?= (int)$row['id'] ?>" onclick="return confirm('Yakin hapus data ini?')">Delete</a>
-              </td>
-              <td><?= htmlspecialchars($row['nim']) ?></td>
-              <td><?= htmlspecialchars($row['nama']) ?></td>
-              <td><?= htmlspecialchars($row['email']) ?></td>
-              <td><?= htmlspecialchars($row['pesan']) ?></td>
-              <td><?= $row['tanggal'] ?></td>
-            </tr>
-          <?php endwhile; ?>
-        </table>
+          <label>Pesan:</label>
+          <p><?= htmlspecialchars($biodata_session['pesan'] ?? ''); ?></p>
+
+          <label>Tanggal:</label>
+          <p><?= htmlspecialchars($biodata_session['tanggal'] ?? ''); ?></p>
+        </div>
       <?php else: ?>
-        <p>Belum ada biodata yang tersimpan.</p>
+        <p>Belum ada biodata yang disimpan.</p>
       <?php endif; ?>
     </section>
 
