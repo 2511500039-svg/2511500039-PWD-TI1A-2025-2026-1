@@ -5,7 +5,6 @@ require_once __DIR__ . '/fungsi.php';
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,8 +31,8 @@ require_once __DIR__ . '/fungsi.php';
     <section id="home">
       <h2>Selamat Datang</h2>
       <?php
-      echo "halo dunia!<br>";
-      echo "nama saya hadi";
+        echo "halo dunia!<br>";
+        echo "nama saya hadi";
       ?>
       <p>Ini contoh paragraf HTML.</p>
     </section>
@@ -42,44 +41,44 @@ require_once __DIR__ . '/fungsi.php';
       <h2>Biodata Dosen</h2>
       <form action="proses_bio.php" method="POST">
 
-        <label for="txtKodeDos"><span>Kode Dosen:</span>
-          <input type="text" id="txtKodeDos" name="txtKodeDos" required>
+        <label>Kode Dosen:
+          <input type="text" name="txtKodeDos" required>
         </label>
 
-        <label for="txtNmDosen"><span>Nama Dosen:</span>
-          <input type="text" id="txtNmDosen" name="txtNmDosen" required>
+        <label>Nama Dosen:
+          <input type="text" name="txtNmDosen" required>
         </label>
 
-        <label for="txtAlRmh"><span>Alamat Rumah:</span>
-          <input type="text" id="txtAlRmh" name="txtAlRmh" required>
+        <label>Alamat Rumah:
+          <input type="text" name="txtAlRmh" required>
         </label>
 
-        <label for="txtTglDosen"><span>Tanggal Jadi Dosen:</span>
-          <input type="text" id="txtTglDosen" name="txtTglDosen" required>
+        <label>Tanggal Jadi Dosen:
+          <input type="text" name="txtTglDosen" required>
         </label>
 
-        <label for="txtJJA"><span>JJA Dosen:</span>
-          <input type="text" id="txtJJA" name="txtJJA" required>
+        <label>JJA Dosen:
+          <input type="text" name="txtJJA" required>
         </label>
 
-        <label for="txtProdi"><span>Homebase Prodi:</span>
-          <input type="text" id="txtProdi" name="txtProdi" required>
+        <label>Homebase Prodi:
+          <input type="text" name="txtProdi" required>
         </label>
 
-        <label for="txtNoHP"><span>Nomor HP:</span>
-          <input type="text" id="txtNoHP" name="txtNoHP" required>
+        <label>Nomor HP:
+          <input type="text" name="txtNoHP" required>
         </label>
 
-        <label for="txNamaPasangan"><span>Nama Pasangan:</span>
-          <input type="text" id="txNamaPasangan" name="txNamaPasangan" required>
+        <label>Nama Pasangan:
+          <input type="text" name="txNamaPasangan" required>
         </label>
 
-        <label for="txtNmAnak"><span>Nama Anak:</span>
-          <input type="text" id="txtNmAnak" name="txtNmAnak" required>
+        <label>Nama Anak:
+          <input type="text" name="txtNmAnak" required>
         </label>
 
-        <label for="txtBidangIlmu"><span>Bidang Ilmu Dosen:</span>
-          <input type="text" id="txtBidangIlmu" name="txtBidangIlmu" required>
+        <label>Bidang Ilmu Dosen:
+          <input type="text" name="txtBidangIlmu" required>
         </label>
 
         <button type="submit">Kirim</button>
@@ -87,29 +86,27 @@ require_once __DIR__ . '/fungsi.php';
       </form>
     </section>
 
-    <!-- ✅ BAGIAN YANG DIPERBAIKI -->
+    <!-- ✅ TENTANG SAYA (BIO DOSEN) -->
     <section id="about">
       <h2>Tentang Saya</h2>
-      <?php include 'read_Bio.php'; ?>
+      <?php include 'read.php'; ?>
     </section>
-    <!-- ✅ SELESAI -->
+    <!-- ✅ AMAN, TIDAK MENGHAPUS TABEL LAIN -->
 
     <?php
-    $flash_sukses = $_SESSION['flash_sukses'] ?? '';
-    $flash_error  = $_SESSION['flash_error'] ?? '';
-    $old          = $_SESSION['old'] ?? [];
-
-    unset($_SESSION['flash_sukses'], $_SESSION['flash_error'], $_SESSION['old']);
+      $flash_sukses = $_SESSION['flash_sukses'] ?? '';
+      $flash_error  = $_SESSION['flash_error'] ?? '';
+      unset($_SESSION['flash_sukses'], $_SESSION['flash_error']);
     ?>
 
     <section id="contact">
       <h2>Kontak Kami</h2>
 
-      <?php if (!empty($flash_sukses)): ?>
+      <?php if ($flash_sukses): ?>
         <div><?= $flash_sukses; ?></div>
       <?php endif; ?>
 
-      <?php if (!empty($flash_error)): ?>
+      <?php if ($flash_error): ?>
         <div><?= $flash_error; ?></div>
       <?php endif; ?>
 
