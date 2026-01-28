@@ -1,52 +1,57 @@
 <?php
+session_start();
 require __DIR__ . '/koneksi.php';
 require_once __DIR__ . '/fungsi.php';
 
-$sql = "SELECT * FROM tbl_biodata_dosen ORDER BY id_dosen DESC";
-$q = mysqli_query($conn, $sql);
-
-if (!$q) {
-  die("Query error: " . mysqli_error($conn));
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+  $_SESSION['flash_bio_error'] = 'Akses tidak valid.';
+  redirect_ke('index.php#biodata');
 }
-?>
 
-<table border="1" cellpadding="8" cellspacing="0" width="100%">
-  <tr>
-    <th>No</th>
-    <th>Kode Dosen</th>
-    <th>Nama</th>
-    <th>Alamat</th>
-    <th>Tanggal Jadi Dosen</th>
-    <th>JJA</th>
-    <th>Prodi</th>
-    <th>No HP</th>
-    <th>Pasangan</th>
-    <th>Anak</th>
-    <th>Bidang Ilmu</th>
-    <th>Created At</th>
-  </tr>
+/* ambil & bersihkan data */
+$kodedos  = bersihkan($_POST['txtKodeDos'] ?? '');
+$nama     = bersihkan($_POST['txtNmDosen'] ?? '');
+$alamat   = bersihkan($_POST['txtAlRmh'] ?? '');
+$tanggal  = bersihkan($_POST['txtTglDosen'] ?? '');
+$jja      = bersihkan($_POST['txtJJA'] ?? '');
+$prodi    = bersihkan($_POST['txtProdi'] ?? '');
+$nohp     = bersihkan($_POST['txtNoHP'] ?? '');
+$pasangan = bersihkan($_POST['txNamaPasangan'] ?? '');
+$anak     = bersihkan($_POST['txtNmAnak'] ?? '');
+$ilmu     = bersihkan($_POST['txtBidangIlmu'] ?? '');
 
-  <?php if (mysqli_num_rows($q) == 0): ?>
-    <tr>
-      <td colspan="12" align="center">Belum ada data biodata dosen</td>
-    </tr>
-  <?php endif; ?>
+/* validasi wajib */
+if ($kodedos === '' || $nama === '' || $prodi === '') {
+  $_SESSION['flash_bio_error'] = 'Kode Dosen, Nama, dan Prodi wajib diisi.';
+  redirect_ke('index.php#biodata');
+}
 
-  <?php $no = 1; ?>
-  <?php while ($row = mysqli_fetch_assoc($q)): ?>
-    <tr>
-      <td><?= $no++ ?></td>
-      <td><?= htmlspecialchars($row['kode_dosen']) ?></td>
-      <td><?= htmlspecialchars($row['nama_dosen']) ?></td>
-      <td><?= htmlspecialchars($row['alamat']) ?></td>
-      <td><?= htmlspecialchars($row['tgl_jadi_dosen']) ?></td>
-      <td><?= htmlspecialchars($row['jja']) ?></td>
-      <td><?= htmlspecialchars($row['prodi']) ?></td>
-      <td><?= htmlspecialchars($row['no_hp']) ?></td>
-      <td><?= htmlspecialchars($row['nama_pasangan']) ?></td>
-      <td><?= htmlspecialchars($row['nama_anak']) ?></td>
-      <td><?= htmlspecialchars($row['bidang_ilmu']) ?></td>
-      <td><?= formatTanggal($row['created_at']) ?></td>
-    </tr>
-  <?php endwhile; ?>
-</table>
+/* simpan ke database */
+$sql = "INSERT INTO tbl_biodata_dosen
+(kode_dosen, nama_dosen, alamat, tgl_jadi_dosen, jja, prodi, no_hp, nama_pasangan, nama_anak, bidang_ilmu)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param(
+  $stmt,
+  "ssssssssss",
+  $kodedos,
+  $nama,
+  $alamat,
+  $tanggal,
+  $jja,
+  $prodi,
+  $nohp,
+  $pasangan,
+  $anak,
+  $ilmu
+);
+
+if (mysqli_stmt_execute($stmt)) {
+  $_SESSION['flash_bio_sukses'] = 'Biodata dosen berhasil disimpan.';
+} else {
+  $_SESSION['flash_bio_error'] = 'Gagal menyimpan data.';
+}
+
+mysqli_stmt_close($stmt);
+redirect_ke('index.php#biodata');
