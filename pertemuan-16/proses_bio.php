@@ -16,7 +16,7 @@ if (!$q) {
     <th>Kode Dosen</th>
     <th>Nama</th>
     <th>Alamat</th>
-    <th>Tgl Jadi Dosen</th>
+    <th>Tanggal Jadi Dosen</th>
     <th>JJA</th>
     <th>Prodi</th>
     <th>No HP</th>
