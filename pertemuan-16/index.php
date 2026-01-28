@@ -39,40 +39,6 @@ require_once __DIR__ . '/fungsi.php';
     </section>
 
     <section id="biodata">
-      <h2>Biodata Sederhana Mahasiswa</h2>
-
-      <?php if (!empty($flash_biodata)): ?>
-        <div style="padding:10px; margin-bottom:10px; background:#d4edda; color:#155724; border-radius:6px;">
-          <?= $flash_biodata; ?>
-        </div>
-      <?php endif; ?>
-
-      <form action="proses_biodata.php" method="POST">
-        <label for="txtNim"><span>NIM:</span>
-          <input type="text" id="txtNim" name="txtNim" placeholder="Masukkan NIM" required
-            value="<?= htmlspecialchars($old_biodata['nim'] ?? '') ?>">
-        </label>
-
-        <label for="txtNmLengkap"><span>Nama Lengkap:</span>
-          <input type="text" id="txtNmLengkap" name="txtNmLengkap" placeholder="Masukkan Nama Lengkap" required
-            value="<?= htmlspecialchars($old_biodata['nama'] ?? '') ?>">
-        </label>
-
-        <label for="txtEmail"><span>Email:</span>
-          <input type="email" id="txtEmail" name="txtEmail" placeholder="Masukkan Email" required
-            value="<?= htmlspecialchars($old_biodata['email'] ?? '') ?>">
-        </label>
-
-        <label for="txtPesan"><span>Pesan:</span>
-          <textarea id="txtPesan" name="txtPesan" rows="4" placeholder="Tulis pesan..." required><?= htmlspecialchars($old_biodata['pesan'] ?? '') ?></textarea>
-        </label>
-
-        <button type="submit">Kirim</button>
-        <button type="reset">Batal</button>
-      </form>
-    </section>
-
-    <section id="biodata">
       <h2>Biodata Dosen</h2>
       <form action="proses_bio.php" method="POST">
 
