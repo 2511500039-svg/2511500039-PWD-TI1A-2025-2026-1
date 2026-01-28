@@ -1,9 +1,10 @@
 <?php
 // ===================================================
-// NO. 3 - TAMPIL DATA BIODATA DOSEN
+// NO. 3 & 4 - TAMPIL DATA BIODATA DOSEN + LINK EDIT
 // ===================================================
 
 require 'koneksi.php'; // koneksi database
+require 'fungsi.php';   // untuk bersihkan(), redirect_ke(), dll
 
 // Query ambil semua biodata dosen
 $sql = "SELECT * FROM tbl_biodata_dosen ORDER BY kode_dosen DESC";
@@ -28,10 +29,12 @@ if (!$result) {
                 <th>Nama Pasangan</th>
                 <th>Nama Anak</th>
                 <th>Bidang Ilmu</th>
+                <th>Aksi</th>
             </tr>";
 
     $no = 1;
     while ($row = mysqli_fetch_assoc($result)) {
+        $kode = urlencode($row['kode_dosen']);
         echo "<tr>
                 <td>{$no}</td>
                 <td>" . htmlspecialchars($row['kode_dosen']) . "</td>
@@ -44,6 +47,9 @@ if (!$result) {
                 <td>" . htmlspecialchars($row['nama_pasangan']) . "</td>
                 <td>" . htmlspecialchars($row['nama_anak']) . "</td>
                 <td>" . htmlspecialchars($row['bidang_ilmu']) . "</td>
+                <td>
+                    <a href='edit_dosen.php?kode={$kode}'>Edit</a>
+                </td>
               </tr>";
         $no++;
     }
