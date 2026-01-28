@@ -12,7 +12,7 @@ Proses saya mengerjakan uas ini sebagai berikut:<br>
     <li>Saya membuat tabel baru di localhostsql</li>
     <li>Memperbaiki beberapa kodingan yang tidak menggunakan session</li>
     <li>Menambah prg dll</li>
-    <li></li>
+    <li>Membuat file baru</li>
     <li></li>
     <li></li>
     <li></li>
