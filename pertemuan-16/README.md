@@ -8,9 +8,9 @@ Kelompok: TI1A<br>
 Proses saya mengerjakan uas ini sebagai berikut:<br>
 
 <ol>
-    <li>Yang oertama tentunya saya mendownload bahan uas dan mengekstraknya</li>
-    <li></li>
-    <li></li>
+    <li>Yang pertama tentunya saya mendownload bahan uas dan mengekstraknya</li>
+    <li>Saya membuat tabel baru di localhostsql</li>
+    <li>Memperbaiki beberapa kodingan yang tidak menggunakan session</li>
     <li></li>
     <li></li>
     <li></li>
